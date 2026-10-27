@@ -214,8 +214,8 @@ h4{font:500 18px/1.25 "Inter",sans-serif;letter-spacing:-.01em}
 .ccard p{color:var(--light-muted);font-size:15px}
 .ccard .link-arrow{align-self:flex-start;margin-top:8px}
 .contact__big{position:relative;display:flex;flex-direction:column;gap:24px}
-.contact__big a{font:300 clamp(54px,10.5vw,170px)/.9 "Inter Display",sans-serif;letter-spacing:-.05em;transition:color .3s}
-.contact__big a:hover{color:var(--accent)}
+.contact__big > a{transition:color .3s}
+
 
 /* ───────── Footer ───────── */
 .footer{background:var(--dark);color:var(--light);padding:0 0 28px}
@@ -347,3 +347,36 @@ body.lb-open{overflow:hidden}
   .lightbox__nav{justify-content:space-between}
 }
 @media (prefers-reduced-motion:reduce){.polaroid,.lightbox[open]{transition:none;animation:none}}
+
+/* ───────── Aufgeräumt: Tabs, Erfahrung, Kontakt ───────── */
+.tabs{display:inline-flex;gap:4px;background:var(--bg);border-radius:999px;padding:5px;align-self:flex-end}
+.tabs button{all:unset;cursor:pointer;padding:10px 18px;border-radius:999px;font-size:14px;font-weight:500;color:var(--muted);transition:background .25s,color .25s}
+.tabs button[aria-selected=true]{background:var(--ink);color:var(--bg)}
+.tabs button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.panel{animation:panelIn .5s var(--ease)}
+.panel[hidden]{display:none}
+@keyframes panelIn{from{opacity:0;transform:translateY(10px)}}
+.services .fineprint{margin-top:20px}
+.services .section-head{margin-bottom:40px}
+.work{padding-top:0}
+.work__head{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:28px;border-top:1px solid var(--line);margin-bottom:20px}
+.contact__big{gap:32px}
+.contact__row{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;padding-top:28px;border-top:1px solid var(--line-light)}
+.contact__row p{color:var(--light-muted);max-width:520px}
+.contact__btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn-light,.btn-ghost{font-size:15px;font-weight:500;padding:13px 20px;border-radius:999px;white-space:nowrap;transition:background .25s,color .25s}
+.btn-light{background:var(--light);color:var(--ink)}
+.btn-light:hover{background:var(--accent)}
+.btn-ghost{border:1px solid var(--line-light);color:var(--light)}
+.btn-ghost:hover{background:var(--dark-2)}
+.contact__big > a{font:300 clamp(54px,10.5vw,170px)/.9 "Inter Display",sans-serif;letter-spacing:-.05em}
+.contact__big > a:hover{color:var(--accent)}
+@media (max-width:760px){
+  .tabs{align-self:stretch;overflow-x:auto;justify-content:space-between}
+  .tabs button{padding:9px 12px;font-size:13px}
+  .contact__row{grid-template-columns:1fr}
+  .work__head{flex-direction:column;align-items:flex-start}
+}
+.section-head--row>.tabs{flex-direction:row;gap:4px}
+.about{padding-top:clamp(80px,10vw,150px)}
+@media (max-width:760px){.card{padding:22px}.card__top{margin-bottom:8px}.card__code{font-size:42px}.card h4{font-size:26px}}

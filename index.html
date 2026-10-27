@@ -28,8 +28,8 @@
   <a class="nav__logo" href="#top" aria-label="Zum Anfang">E.S.<sup>©2026</sup></a>
   <nav class="nav__links" aria-label="Hauptnavigation">
     <a href="#leistungen"><span>01</span>Leistungen</a>
-    <a href="#ki"><span>02</span>KI-Transformation</a>
-    <a href="#arbeiten"><span>03</span>Erfahrung</a>
+    <a href="#beispiele"><span>02</span>Beispiele</a>
+    <a href="#ki"><span>03</span>Ansatz</a>
     <a href="#ueber"><span>04</span>Über mich</a>
     <a href="#kontakt"><span>05</span>Kontakt</a>
   </nav>
@@ -40,8 +40,8 @@
 <div class="menu" id="menu" hidden>
   <ol>
     <li><a href="#leistungen"><span>01</span>Leistungen</a></li>
-    <li><a href="#ki"><span>02</span>KI-Transformation</a></li>
-    <li><a href="#arbeiten"><span>03</span>Erfahrung</a></li>
+    <li><a href="#beispiele"><span>02</span>Beispiele</a></li>
+    <li><a href="#ki"><span>03</span>Ansatz</a></li>
     <li><a href="#ueber"><span>04</span>Über mich</a></li>
     <li><a href="#kontakt"><span>05</span>Kontakt</a></li>
   </ol>
@@ -61,133 +61,104 @@
   <h1 class="hero__title">Design,<br>das mitdenkt.</h1>
   <div class="hero__explore">
     <span class="label">Entdecken</span>
-    <a class="chip" href="#leistungen">W¹ Websites</a>
+    <a class="chip" href="#leistungen">Websites</a>
+    <a class="chip" href="#leistungen" data-tab="a">Automatisierung</a>
     <a class="chip" href="#beispiele">Beispiele ansehen</a>
-    <a class="chip" href="#ki">K¹ KI-Kompass</a>
-    <a class="chip" href="#automatisierung">A¹ Automatisierung</a>
-    <a class="chip" href="#ki">K³ Transformation</a>
   </div>
 </section>
 
 <!-- ───────── Überblick ───────── -->
 <section class="overview wrap">
-  <div class="overview__label reveal"><span class="label">Überblick</span><span class="label label--muted">Ansatz</span></div>
+  <div class="overview__label reveal"><span class="label">Überblick</span></div>
   <p class="overview__lead reveal">Ich gestalte Websites, die Kundschaft gewinnen, automatisiere Papierkram und bringe KI in Unternehmen, sodass Menschen <em>weniger verwalten und mehr gestalten.</em></p>
   <a class="link-arrow reveal" href="#kontakt">Kostenloser Website-Check</a>
-</section>
-
-<section class="facts wrap">
-  <div class="facts__head reveal">
-    <span class="label">Bei Enis Sentürk</span>
-    <h2>Technologie, die sich nach Menschen richtet.</h2>
-  </div>
-  <ul class="facts__list">
-    <li class="reveal"><span class="num">0.1</span><span class="k">Mission</span><span class="v">Lokale Unternehmen digital sichtbar machen</span></li>
-    <li class="reveal"><span class="num">0.2</span><span class="k">Vision</span><span class="v">KI als Werkzeug für Menschen, nicht gegen sie</span></li>
-    <li class="reveal"><span class="num">0.3</span><span class="k">Anspruch</span><span class="v">Einfach, schnell, ehrlich, ohne Agentur-Overhead</span></li>
-    <li class="reveal"><span class="num">&nbsp;</span><span class="k">Für wen</span><span class="v">Handwerk, Praxen, Gastro, Handel, Mittelstand</span></li>
-    <li class="reveal"><span class="num">&nbsp;</span><span class="k">Kern</span><span class="v">Websites, Automatisierung, eigene Apps, KI-Workshops</span></li>
-    <li class="reveal"><span class="num">&nbsp;</span><span class="k">Sprachen</span><span class="v">Deutsch · Türkçe · English</span></li>
-  </ul>
-  <div class="glossary reveal">
-    <span class="label">0.4 Wie ich arbeite</span>
-    <dl>
-      <div><dt>SD<sup>¹</sup></dt><dd>Strategisches Design</dd></div>
-      <div><dt>HCD<sup>²</sup></dt><dd>Human-Centered Design</dd></div>
-      <div><dt>KI<sup>³</sup></dt><dd>Künstliche Intelligenz mit Augenmaß</dd></div>
-    </dl>
-  </div>
 </section>
 
 <!-- ───────── 01 Leistungen ───────── -->
 <section class="services" id="leistungen">
   <div class="wrap">
-    <div class="section-head reveal">
-      <span class="label">01 · Leistungen</span>
-      <h2>Drei Wege,<br>ein Ziel: <em>weiterkommen.</em></h2>
+    <div class="section-head section-head--row reveal">
+      <div><span class="label">01 · Leistungen</span><h2>Drei Wege,<br>ein Ziel: <em>weiterkommen.</em></h2></div>
+      <div class="tabs" role="tablist" aria-label="Leistungsbereiche">
+        <button role="tab" id="tab-w" aria-controls="panel-w" aria-selected="true">Websites</button>
+        <button role="tab" id="tab-a" aria-controls="panel-a" aria-selected="false" tabindex="-1">Automatisierung</button>
+        <button role="tab" id="tab-k" aria-controls="panel-k" aria-selected="false" tabindex="-1">KI im Team</button>
+      </div>
     </div>
-
-    <div class="service-group">
-      <h3 class="service-group__title reveal"><span>W</span>Websites</h3>
+    <div class="panel" id="panel-w" role="tabpanel" aria-labelledby="tab-w">
       <div class="cards">
-        <article class="card reveal">
+        <article class="card">
           <div class="card__top"><span class="card__code">W<sup>¹</sup></span><span class="card__price">ab 690 €</span></div>
           <h4>Start</h4>
           <p>Ein starker One-Pager für Handwerk, Praxis oder Café. In zwei Wochen online.</p>
-          <ul><li>Responsives Design für alle Geräte</li><li>Texte & Struktur, die verkaufen</li><li>Impressum & Datenschutz eingebunden</li><li>Google-Unternehmensprofil eingerichtet</li></ul>
+          <ul><li>Für Handy und PC</li><li>Texte, die verkaufen</li><li>Google-Profil eingerichtet</li></ul>
         </article>
-        <article class="card card--feature reveal">
+        <article class="card card--feature">
           <div class="card__top"><span class="card__code">W<sup>²</sup></span><span class="card__price">ab 1.490 €</span></div>
           <h4>Business</h4>
-          <p>Mehrseitige Website mit klarer Markenwirkung und Funktionen, die Arbeit abnehmen.</p>
-          <ul><li>Bis zu 6 Seiten, eigenes Designsystem</li><li>Kontaktformular oder Online-Terminbuchung</li><li>SEO-Grundlagen & schnelle Ladezeiten</li><li>Einweisung, damit Sie selbst pflegen können</li></ul>
-          <span class="card__badge">Beliebt</span>
+          <p>Mehrere Seiten mit Funktionen, die Arbeit abnehmen.</p>
+          <ul><li>Kontaktformular oder Terminbuchung</li><li>SEO-Grundlagen</li><li>Einweisung zum Selberpflegen</li></ul>
         </article>
-        <article class="card reveal">
+        <article class="card">
           <div class="card__top"><span class="card__code">W<sup>³</sup></span><span class="card__price">ab 990 €</span></div>
           <h4>Relaunch</h4>
           <p>Ihre Seite ist in die Jahre gekommen? Ich mache sie modern, schnell und mobil.</p>
-          <ul><li>Analyse der bestehenden Seite</li><li>Neues Design, Inhalte übernommen</li><li>Weiterleitungen, damit Google Sie findet</li><li>Optional: Pflege-Paket monatlich</li></ul>
+          <ul><li>Inhalte werden übernommen</li><li>Google findet Sie weiter</li><li>Optional: Pflege monatlich</li></ul>
         </article>
       </div>
     </div>
-
-    <div class="service-group">
-      <h3 class="service-group__title reveal"><span>K</span>KI im Unternehmen</h3>
+    <div class="panel" id="panel-a" role="tabpanel" aria-labelledby="tab-a">
+      <div class="flow" aria-label="So funktioniert die Dokumenten-App">
+        <div class="flow__step"><span>01</span><strong>Hochladen</strong><p>Rechnungen, Lieferscheine, Fotos</p></div>
+        <div class="flow__arrow" aria-hidden="true">→</div>
+        <div class="flow__step"><span>02</span><strong>KI liest aus</strong><p>Beträge, Daten, Positionen</p></div>
+        <div class="flow__arrow" aria-hidden="true">→</div>
+        <div class="flow__step flow__step--out"><span>03</span><strong>Fertig gebaut</strong><p>Belegliste, Angebot oder Bericht</p></div>
+      </div>
       <div class="cards">
-        <article class="card reveal">
+        <article class="card">
+          <div class="card__top"><span class="card__code">A<sup>¹</sup></span><span class="card__price">ab 890 €</span></div>
+          <h4>Beleg-Autopilot</h4>
+          <p>Belege fotografieren, der Rest passiert von selbst.</p>
+          <ul><li>Rechnungen automatisch auslesen</li><li>Sortiert nach Monat und Lieferant</li><li>Export für Steuerbüro oder DATEV</li></ul>
+        </article>
+        <article class="card card--feature">
+          <div class="card__top"><span class="card__code">A<sup>²</sup></span><span class="card__price">ab 2.400 €</span></div>
+          <h4>Eigene App</h4>
+          <p>Eine Web-App für Ihren Betrieb: Dateien rein, Ergebnis raus.</p>
+          <ul><li>Aus Aufmaß und Fotos wird ein Angebot</li><li>Läuft im Browser und auf dem Handy</li><li>Auf Wunsch lokal, Daten bleiben im Haus</li></ul>
+        </article>
+        <article class="card">
+          <div class="card__top"><span class="card__code">A<sup>³</sup></span><span class="card__price">ab 600 €</span></div>
+          <h4>Abläufe verbinden</h4>
+          <p>Ihre Werkzeuge sprechen miteinander, statt dass Sie abtippen.</p>
+          <ul><li>Anfragen direkt in Kalender und Liste</li><li>Automatische Erinnerungen</li><li>Vorlagen auf Knopfdruck</li></ul>
+        </article>
+      </div>
+    </div>
+    <div class="panel" id="panel-k" role="tabpanel" aria-labelledby="tab-k">
+      <div class="cards">
+        <article class="card">
           <div class="card__top"><span class="card__code">K<sup>¹</sup></span><span class="card__price">ab 450 €</span></div>
           <h4>KI-Kompass</h4>
-          <p>Halbtägiger Workshop mit Ihrem Team: Wo hilft KI wirklich, wo nicht?</p>
-          <ul><li>Praxisnahe Einführung in KI-Werkzeuge</li><li>Ihre Aufgaben, Ihre Beispiele</li><li>Leitlinien für sicheren Einsatz & Datenschutz</li><li>Unterstützt die KI-Kompetenzpflicht (Art. 4 KI-VO)</li></ul>
+          <p>Halbtägiger Workshop mit Ihrem Team: Wo hilft KI wirklich?</p>
+          <ul><li>Mit Ihren eigenen Aufgaben</li><li>Leitlinien für Datenschutz</li><li>Unterstützt die KI-Kompetenzpflicht</li></ul>
         </article>
-        <article class="card reveal">
+        <article class="card">
           <div class="card__top"><span class="card__code">K<sup>²</sup></span><span class="card__price">ab 1.200 €</span></div>
           <h4>KI-Pilot</h4>
           <p>Ein konkreter Prototyp, der ab Tag eins Zeit spart.</p>
-          <ul><li>Assistent für Angebote, E-Mails oder Doku</li><li>FAQ-Chat auf Ihrer Website</li><li>Wissens-Chat mit Ihren eigenen Unterlagen</li><li>Getestet mit den Menschen, die ihn nutzen</li></ul>
+          <ul><li>Assistent für Angebote und E-Mails</li><li>FAQ-Chat auf Ihrer Website</li><li>Getestet mit Ihrem Team</li></ul>
         </article>
-        <article class="card card--dark reveal">
+        <article class="card card--dark">
           <div class="card__top"><span class="card__code">K<sup>³</sup></span><span class="card__price">auf Anfrage</span></div>
           <h4>Transformation</h4>
-          <p>Strategische Begleitung über Wochen oder Monate, vom Ist-Zustand zur KI-fähigen Organisation.</p>
-          <ul><li>Interviews & Prozessanalyse</li><li>Roadmap mit Quick Wins</li><li>Pilotprojekte & Erfolgsmessung</li><li>Change-Begleitung im Team</li></ul>
+          <p>Strategische Begleitung vom Ist-Zustand zur KI-fähigen Organisation.</p>
+          <ul><li>Prozessanalyse und Roadmap</li><li>Pilotprojekte</li><li>Begleitung im Team</li></ul>
         </article>
       </div>
     </div>
-
-    <div class="service-group" id="automatisierung">
-      <h3 class="service-group__title reveal"><span>A</span>Automatisierung &amp; eigene Apps</h3>
-      <div class="flow reveal" aria-label="So funktioniert die Dokumenten-App">
-        <div class="flow__step"><span>01</span><strong>Hochladen</strong><p>Rechnungen, Lieferscheine, Fotos, Excel-Listen per Handy oder PC ablegen</p></div>
-        <div class="flow__arrow" aria-hidden="true">→</div>
-        <div class="flow__step"><span>02</span><strong>KI liest aus</strong><p>Beträge, Daten, Kunden, Positionen werden erkannt und sortiert</p></div>
-        <div class="flow__arrow" aria-hidden="true">→</div>
-        <div class="flow__step flow__step--out"><span>03</span><strong>Fertig gebaut</strong><p>Belegliste für den Steuerberater, Angebot, Bericht oder Übersicht</p></div>
-      </div>
-      <div class="cards">
-        <article class="card reveal">
-          <div class="card__top"><span class="card__code">A<sup>¹</sup></span><span class="card__price">ab 890 €</span></div>
-          <h4>Beleg-Autopilot</h4>
-          <p>Schluss mit dem Schuhkarton: Belege fotografieren, der Rest passiert von selbst.</p>
-          <ul><li>Rechnungen &amp; Quittungen automatisch auslesen</li><li>Sortiert nach Monat, Lieferant, Kategorie</li><li>Export für Steuerberater, DATEV oder Excel</li><li>Erinnerung bei fehlenden Belegen</li></ul>
-        </article>
-        <article class="card card--feature reveal">
-          <div class="card__top"><span class="card__code">A<sup>²</sup></span><span class="card__price">ab 2.400 €</span></div>
-          <h4>Eigene App</h4>
-          <p>Eine Web-App, maßgeschneidert für Ihren Betrieb. Dateien rein, Ergebnis raus.</p>
-          <ul><li>Aus Aufmaß, Fotos &amp; Notizen wird ein Angebot</li><li>Lieferscheine werden zur Bestandsliste</li><li>Läuft im Browser, auch auf dem Handy</li><li>Auf Wunsch lokal: Daten bleiben im Haus</li></ul>
-          <span class="card__badge">Neu</span>
-        </article>
-        <article class="card reveal">
-          <div class="card__top"><span class="card__code">A<sup>³</sup></span><span class="card__price">ab 600 €</span></div>
-          <h4>Abläufe verbinden</h4>
-          <p>Ihre Werkzeuge sprechen miteinander, statt dass Sie Daten abtippen.</p>
-          <ul><li>Anfragen von der Website direkt in Kalender &amp; Liste</li><li>Automatische Termin- und Zahlungserinnerungen</li><li>Angebots- und Rechnungsvorlagen auf Knopfdruck</li><li>Optional: Wartung zum monatlichen Festpreis</li></ul>
-        </article>
-      </div>
-    </div>
-    <p class="fineprint reveal">Alle Preise sind Richtwerte, jedes Projekt bekommt vorab ein festes Angebot. Die Buchhaltung selbst und steuerliche Beratung bleiben bei Ihrem Steuerbüro, ich automatisiere die Vorarbeit.</p>
+    <p class="fineprint">Richtwerte, jedes Projekt bekommt vorab einen Festpreis. Buchhaltung und Steuerberatung bleiben bei Ihrem Steuerbüro, ich automatisiere die Vorarbeit.</p>
   </div>
 </section>
 
@@ -195,7 +166,7 @@
 <section class="examples" id="beispiele">
   <div class="wrap">
     <div class="section-head section-head--row reveal">
-      <div><span class="label">Beispiele</span><h2>So kann Ihre<br>Seite <em>aussehen.</em></h2></div>
+      <div><span class="label">02 · Beispiele</span><h2>So kann Ihre<br>Seite <em>aussehen.</em></h2></div>
       <p class="examples__hint">Jede Branche hat ihren eigenen Charakter. Tippen Sie ein Foto an, um den Entwurf groß zu sehen und durchzublättern.</p>
     </div>
   </div>
@@ -249,7 +220,7 @@
   <div class="wrap">
     <div class="method__head">
       <div class="reveal">
-        <span class="label label--light">02 · KI-Transformation</span>
+        <span class="label label--light">03 · Ansatz</span>
         <h2>Die neue<br>Methode.</h2>
       </div>
       <div class="method__intro reveal">
@@ -280,61 +251,6 @@
       </li>
     </ol>
 
-    <div class="usecases reveal">
-      <span class="label label--light">Typische Einsatzfelder</span>
-      <div class="ticker" aria-label="Beispiele für KI-Einsatz">
-        <div class="ticker__track">
-          <span>Belege automatisch auslesen</span><span>Angebote schneller schreiben</span><span>Kundenanfragen vorsortieren</span><span>Protokolle & Dokumentation</span><span>Social-Media-Inhalte</span><span>Wissensdatenbank fürs Team</span><span>Terminplanung</span><span>Übersetzungen</span><span>Produkttexte</span>
-          <span aria-hidden="true">Belege automatisch auslesen</span><span aria-hidden="true">Angebote schneller schreiben</span><span aria-hidden="true">Kundenanfragen vorsortieren</span><span aria-hidden="true">Protokolle & Dokumentation</span><span aria-hidden="true">Social-Media-Inhalte</span><span aria-hidden="true">Wissensdatenbank fürs Team</span><span aria-hidden="true">Terminplanung</span><span aria-hidden="true">Übersetzungen</span><span aria-hidden="true">Produkttexte</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ───────── Ablauf ───────── -->
-<section class="process wrap">
-  <div class="section-head reveal">
-    <span class="label">Ablauf</span>
-    <h2>Vom ersten Kaffee<br>bis zum <em>Launch.</em></h2>
-  </div>
-  <ol class="steps">
-    <li class="reveal"><span>01</span><h4>Erstgespräch</h4><p>30 Minuten, kostenlos. Vor Ort in Reutlingen, Pfullingen, Metzingen, Tübingen oder per Video.</p></li>
-    <li class="reveal"><span>02</span><h4>Konzept & Angebot</h4><p>Struktur, Look und ein Festpreis. Keine Überraschungen.</p></li>
-    <li class="reveal"><span>03</span><h4>Gestaltung & Umsetzung</h4><p>Sie sehen früh echte Entwürfe und geben direkt Feedback.</p></li>
-    <li class="reveal"><span>04</span><h4>Launch & Betreuung</h4><p>Online gehen, einweisen, auf Wunsch weiter begleiten.</p></li>
-  </ol>
-</section>
-
-<!-- ───────── 03 Erfahrung ───────── -->
-<section class="work" id="arbeiten">
-  <div class="wrap">
-    <div class="section-head section-head--row reveal">
-      <div><span class="label">03 · Erfahrung</span><h2>Transformation,<br>schon <em>erprobt.</em></h2></div>
-      <a class="link-arrow" href="https://enoveqz.github.io/" target="_blank" rel="noopener">Ganzes Portfolio</a>
-    </div>
-    <div class="work__grid">
-      <a class="tile reveal" href="https://enoveqz.github.io/p/festool-insight/" target="_blank" rel="noopener">
-        <div class="tile__img"><img src="assets/img/festool-insight.jpg" alt="Festool Insight" loading="lazy"></div>
-        <div class="tile__meta"><span>Festool</span><span>2025/26</span></div>
-        <p>KI und Sensorik im Handwerk 2035, mit Festool als Partner.</p>
-      </a>
-      <a class="tile reveal" href="https://enoveqz.github.io/p/or3/" target="_blank" rel="noopener">
-        <div class="tile__img"><img src="assets/img/or3.jpg" alt="OR3" loading="lazy"></div>
-        <div class="tile__meta"><span>Klinik</span><span>2025</span></div>
-        <p>Abläufe der Notaufnahme mit dem Personal neu gestaltet.</p>
-      </a>
-      <a class="tile reveal" href="https://enoveqz.github.io/p/somnia/" target="_blank" rel="noopener">
-        <div class="tile__img"><img src="assets/img/somnia.jpg" alt="SOMNIA" loading="lazy"></div>
-        <div class="tile__meta"><span>Strategie</span><span>2026</span></div>
-        <p>Framework für verantwortungsvolle Technologie.</p>
-      </a>
-      <a class="tile reveal" href="https://enoveqz.github.io/p/pathaware/" target="_blank" rel="noopener">
-        <div class="tile__img"><img src="assets/img/pathaware.jpg" alt="PathAware" loading="lazy"></div>
-        <div class="tile__meta"><span>Web-App</span><span>2024/25</span></div>
-        <p>Mobile Web-App mit Kampagne, von der Idee bis online.</p>
-      </a>
-    </div>
   </div>
 </section>
 
@@ -357,46 +273,56 @@
   </div>
 </section>
 
+<section class="work wrap" id="arbeiten">
+  <div class="work__head reveal"><span class="label">Projekte aus Studium &amp; Praxis</span><a class="link-arrow" href="https://enoveqz.github.io/" target="_blank" rel="noopener">Ganzes Portfolio</a></div>
+  <div class="work__grid">
+      <a class="tile reveal" href="https://enoveqz.github.io/p/festool-insight/" target="_blank" rel="noopener">
+        <div class="tile__img"><img src="assets/img/festool-insight.jpg" alt="Festool Insight" loading="lazy"></div>
+        <div class="tile__meta"><span>Festool</span><span>2025/26</span></div>
+        <p>KI und Sensorik im Handwerk 2035, mit Festool als Partner.</p>
+      </a>
+      <a class="tile reveal" href="https://enoveqz.github.io/p/or3/" target="_blank" rel="noopener">
+        <div class="tile__img"><img src="assets/img/or3.jpg" alt="OR3" loading="lazy"></div>
+        <div class="tile__meta"><span>Klinik</span><span>2025</span></div>
+        <p>Abläufe der Notaufnahme mit dem Personal neu gestaltet.</p>
+      </a>
+      <a class="tile reveal" href="https://enoveqz.github.io/p/somnia/" target="_blank" rel="noopener">
+        <div class="tile__img"><img src="assets/img/somnia.jpg" alt="SOMNIA" loading="lazy"></div>
+        <div class="tile__meta"><span>Strategie</span><span>2026</span></div>
+        <p>Framework für verantwortungsvolle Technologie.</p>
+      </a>
+      <a class="tile reveal" href="https://enoveqz.github.io/p/pathaware/" target="_blank" rel="noopener">
+        <div class="tile__img"><img src="assets/img/pathaware.jpg" alt="PathAware" loading="lazy"></div>
+        <div class="tile__meta"><span>Web-App</span><span>2024/25</span></div>
+        <p>Mobile Web-App mit Kampagne, von der Idee bis online.</p>
+      </a>
+</section>
+
+
 <!-- ───────── FAQ ───────── -->
 <section class="faq wrap">
   <div class="section-head reveal"><span class="label">Häufige Fragen</span><h2>Kurz &amp; ehrlich.</h2></div>
   <div class="faq__list">
-    <details class="reveal"><summary>Wie lange dauert eine Website?</summary><p>Ein One-Pager ist meist in zwei Wochen online, eine mehrseitige Website in drei bis sechs Wochen, je nachdem, wie schnell Inhalte und Feedback kommen.</p></details>
-    <details class="reveal"><summary>Brauche ich eigene Fotos und Texte?</summary><p>Nein. Ich entwickle Texte gemeinsam mit Ihnen, mit KI-Unterstützung und Ihrem Fachwissen. Fotos können wir vor Ort machen oder passende Bilder auswählen.</p></details>
-    <details class="reveal"><summary>Was kostet der Betrieb danach?</summary><p>Domain und Hosting liegen meist bei wenigen Euro im Monat. Auf Wunsch übernehme ich Pflege und Updates zum monatlichen Festpreis.</p></details>
+    <details class="reveal"><summary>Wie lange dauert eine Website?</summary><p>Ein One-Pager ist meist in zwei Wochen online, eine mehrseitige Website in drei bis sechs Wochen. Texte und Fotos erarbeiten wir gemeinsam.</p></details>
     <details class="reveal"><summary>Ist KI für meinen kleinen Betrieb überhaupt sinnvoll?</summary><p>Oft gerade dort. Schon einfache Werkzeuge sparen bei Angeboten, E-Mails oder Social Media Stunden pro Woche. Im KI-Kompass finden wir heraus, ob und wo es sich für Sie lohnt.</p></details>
     <details class="reveal"><summary>Übernehmen Sie meine Buchhaltung?</summary><p>Ich automatisiere die Vorarbeit: Belege sammeln, auslesen, sortieren und sauber an Ihr Steuerbüro übergeben. Das spart oft Stunden pro Monat. Das Buchen selbst und die steuerliche Beratung bleiben bei Ihrem Steuerberater.</p></details>
-    <details class="reveal"><summary>Bleiben meine Daten bei mir?</summary><p>Wenn Sie möchten, ja. Apps können so gebaut werden, dass sie lokal auf Ihrem Rechner oder Server laufen. Dann verlassen Ihre Dokumente das Haus nicht. Alternativ nutzen wir europäische Cloud-Dienste.</p></details>
-    <details class="reveal"><summary>Wie gehen Sie mit Daten und Datenschutz um?</summary><p>Websites werden DSGVO-bewusst gebaut, ohne unnötige Tracker. Bei KI klären wir vorab, welche Daten in welche Werkzeuge dürfen, und halten das in Leitlinien fest.</p></details>
+    <details class="reveal"><summary>Was passiert mit meinen Daten?</summary><p>Websites baue ich DSGVO-bewusst und ohne unnötige Tracker. Apps können auf Wunsch lokal bei Ihnen laufen, dann verlassen Ihre Dokumente das Haus nicht.</p></details>
   </div>
 </section>
 
 <!-- ───────── 05 Kontakt ───────── -->
 <section class="contact" id="kontakt">
   <div class="wrap">
-    <div class="contact__cards">
-      <a class="ccard reveal" href="mailto:enissentuerk@hotmail.de?subject=Kostenloser%20Website-Check">
-        <span class="ccard__num">1.0</span>
-        <h3>Website-Check</h3>
-        <p>Schicken Sie mir Ihre Adresse. Sie bekommen eine ehrliche Einschätzung mit drei konkreten Verbesserungen, kostenlos.</p>
-        <span class="link-arrow">Check anfragen</span>
-      </a>
-      <a class="ccard reveal" href="mailto:enissentuerk@hotmail.de?subject=Anfrage%20Automatisierung%20%26%20KI">
-        <span class="ccard__num">2.0</span>
-        <h3>Weniger Papierkram</h3>
-        <p>Belege, Angebote, Listen: Erzählen Sie mir, was Sie nervt. Ich zeige Ihnen, was sich automatisieren lässt.</p>
-        <span class="link-arrow">Idee besprechen</span>
-      </a>
-      <a class="ccard reveal" href="mailto:enissentuerk@hotmail.de?subject=Hallo%20Enis">
-        <span class="ccard__num">3.0</span>
-        <h3>Einfach Hallo</h3>
-        <p>Fragen, Ideen oder nur ein Kaffee in Reutlingen. Ich antworte innerhalb von 24 Stunden.</p>
-        <span class="link-arrow">Sag Hallo</span>
-      </a>
-    </div>
     <div class="contact__big reveal">
       <span class="label label--light">05 · Kontakt</span>
       <a href="mailto:enissentuerk@hotmail.de">Lassen Sie uns<br>etwas bauen.</a>
+      <div class="contact__row">
+        <p>Erstgespräch kostenlos, 30 Minuten. Vor Ort in Reutlingen und Umgebung oder per Video. Antwort innerhalb von 24 Stunden.</p>
+        <div class="contact__btns">
+          <a class="btn-light" href="mailto:enissentuerk@hotmail.de?subject=Kostenloser%20Website-Check">Kostenloser Website-Check</a>
+          <a class="btn-ghost" href="mailto:enissentuerk@hotmail.de">enissentuerk@hotmail.de</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -411,7 +337,7 @@
     </div>
     <div>
       <span class="label label--light">1.0 Seiten</span>
-      <ul><li><a href="#leistungen">Leistungen</a></li><li><a href="#beispiele">Beispiele</a></li><li><a href="#automatisierung">Automatisierung</a></li><li><a href="#ki">KI-Transformation</a></li><li><a href="#arbeiten">Erfahrung</a></li><li><a href="#ueber">Über mich</a></li></ul>
+      <ul><li><a href="#leistungen">Leistungen</a></li><li><a href="#beispiele">Beispiele</a></li><li><a href="#ki">Ansatz</a></li><li><a href="#ueber">Über mich</a></li></ul>
     </div>
     <div>
       <span class="label label--light">2.0 Folgen</span>

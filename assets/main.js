@@ -118,3 +118,29 @@
   lb.querySelector('.lightbox__foot').addEventListener('touchstart', e => x0 = e.touches[0].clientX, { passive: true });
   lb.querySelector('.lightbox__foot').addEventListener('touchend', e => { if (x0 == null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1)); x0 = null; });
 })();
+
+/* Leistungen: Reiter */
+(() => {
+  const tabs = [...document.querySelectorAll('.tabs [role=tab]')];
+  if (!tabs.length) return;
+  const select = (t, focus) => {
+    tabs.forEach(x => {
+      const on = x === t;
+      x.setAttribute('aria-selected', on);
+      x.tabIndex = on ? 0 : -1;
+      document.getElementById(x.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (focus) t.focus();
+  };
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => select(t));
+    t.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') select(tabs[(i + 1) % tabs.length], true);
+      if (e.key === 'ArrowLeft') select(tabs[(i - 1 + tabs.length) % tabs.length], true);
+    });
+  });
+  select(tabs[0]);
+  document.querySelectorAll('[data-tab]').forEach(a => a.addEventListener('click', () => {
+    const t = document.getElementById('tab-' + a.dataset.tab); if (t) select(t);
+  }));
+})();
