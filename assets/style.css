@@ -380,3 +380,36 @@ body.lb-open{overflow:hidden}
 .section-head--row>.tabs{flex-direction:row;gap:4px}
 .about{padding-top:clamp(80px,10vw,150px)}
 @media (max-width:760px){.card{padding:22px}.card__top{margin-bottom:8px}.card__code{font-size:42px}.card h4{font-size:26px}}
+
+/* ───────── Leistungen v4: ruhiges Raster ───────── */
+.services{padding:clamp(96px,11vw,160px) 0}
+.services__head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:56px}
+.services__head>div{display:flex;flex-direction:column;gap:20px}
+.services .tabs{background:var(--bg);flex-direction:row;align-self:auto}
+.offers{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink)}
+.offer{display:flex;flex-direction:column;padding:32px 32px 36px 0}
+.offer+.offer{padding-left:32px;border-left:1px solid var(--line)}
+.offer__top{display:flex;align-items:center;justify-content:space-between;min-height:26px;margin-bottom:40px}
+.offer__code{font-size:13px;font-weight:500;letter-spacing:.04em;color:var(--muted)}
+.offer__tag{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;background:var(--ink);color:var(--bg);padding:5px 10px;border-radius:999px}
+.offer__title{font:300 clamp(32px,3vw,44px)/1 "Inter Display",sans-serif;letter-spacing:-.03em;margin-bottom:14px}
+.offer__text{color:var(--muted);font-size:15px;line-height:1.55;margin-bottom:28px;max-width:34ch}
+.offer__list{display:flex;flex-direction:column;gap:10px;margin-bottom:36px}
+.offer__list li{font-size:15px;padding-left:22px;position:relative}
+.offer__list li::before{content:"";position:absolute;left:0;top:.72em;width:10px;height:1px;background:var(--ink)}
+.offer__price{margin-top:auto;font:400 22px/1 "Inter Display",sans-serif;letter-spacing:-.01em}
+.flow-line{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-bottom:28px;font-size:14px}
+.flow-line span{border:1px solid var(--line);border-radius:999px;padding:7px 14px;background:var(--bg)}
+.flow-line i{font-style:normal;color:var(--muted)}
+.flow-line em{flex-basis:100%;color:var(--muted);font-size:14px}
+.services .fineprint{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:13px}
+@media (max-width:900px){
+  .offers{grid-template-columns:1fr}
+  .offer,.offer+.offer{padding:32px 0;border-left:0;border-bottom:1px solid var(--line)}
+  .offer__top{margin-bottom:20px}
+}
+@media (max-width:760px){
+  .services__head{flex-direction:column;align-items:stretch;gap:28px;margin-bottom:36px}
+  .services .tabs{width:100%}
+  .services .tabs button{flex:1;text-align:center;padding:10px 6px}
+}

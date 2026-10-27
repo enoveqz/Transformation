@@ -16,7 +16,7 @@
 <meta property="og:image:height" content="630">
 <meta name="theme-color" content="#ECECEA">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230E0E0E'/%3E%3Ccircle cx='32' cy='32' r='11' fill='%23ECECEA'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/style.css?v=4">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"Enis Sentürk – Websites, Automatisierung & KI","url":"https://enoveqz.github.io/Transformation/","image":"https://enoveqz.github.io/Transformation/assets/img/og.png","email":"enissentuerk@hotmail.de","founder":{"@type":"Person","name":"Enis Sentürk","jobTitle":"Strategischer Designer"},"address":{"@type":"PostalAddress","addressLocality":"Reutlingen","postalCode":"72762","addressCountry":"DE"},"areaServed":["Reutlingen","Pfullingen","Metzingen","Tübingen"],"knowsLanguage":["de","tr","en"],"priceRange":"€€"}
 </script>
@@ -77,84 +77,90 @@
 <!-- ───────── 01 Leistungen ───────── -->
 <section class="services" id="leistungen">
   <div class="wrap">
-    <div class="section-head section-head--row reveal">
-      <div><span class="label">01 · Leistungen</span><h2>Drei Wege,<br>ein Ziel: <em>weiterkommen.</em></h2></div>
+    <div class="services__head reveal">
+      <div>
+        <span class="label">01 · Leistungen</span>
+        <h2>Drei Wege,<br>ein Ziel: <em>weiterkommen.</em></h2>
+      </div>
       <div class="tabs" role="tablist" aria-label="Leistungsbereiche">
-        <button role="tab" id="tab-w" aria-controls="panel-w" aria-selected="true">Websites</button>
-        <button role="tab" id="tab-a" aria-controls="panel-a" aria-selected="false" tabindex="-1">Automatisierung</button>
-        <button role="tab" id="tab-k" aria-controls="panel-k" aria-selected="false" tabindex="-1">KI im Team</button>
+        <button type="button" role="tab" id="tab-w" aria-controls="panel-w" aria-selected="true">Websites</button>
+        <button type="button" role="tab" id="tab-a" aria-controls="panel-a" aria-selected="false" tabindex="-1">Automatisierung</button>
+        <button type="button" role="tab" id="tab-k" aria-controls="panel-k" aria-selected="false" tabindex="-1">KI im Team</button>
       </div>
     </div>
     <div class="panel" id="panel-w" role="tabpanel" aria-labelledby="tab-w">
-      <div class="cards">
-        <article class="card">
-          <div class="card__top"><span class="card__code">W<sup>¹</sup></span><span class="card__price">ab 690 €</span></div>
-          <h4>Start</h4>
-          <p>Ein starker One-Pager für Handwerk, Praxis oder Café. In zwei Wochen online.</p>
-          <ul><li>Für Handy und PC</li><li>Texte, die verkaufen</li><li>Google-Profil eingerichtet</li></ul>
+      <div class="offers">
+        <article class="offer">
+          <div class="offer__top"><span class="offer__code">W¹</span></div>
+          <h3 class="offer__title">Start</h3>
+          <p class="offer__text">Ein starker One-Pager für Handwerk, Praxis oder Café. In zwei Wochen online.</p>
+          <ul class="offer__list"><li>Für Handy und PC</li><li>Texte, die verkaufen</li><li>Google-Profil eingerichtet</li></ul>
+          <p class="offer__price">ab 690 €</p>
         </article>
-        <article class="card card--feature">
-          <div class="card__top"><span class="card__code">W<sup>²</sup></span><span class="card__price">ab 1.490 €</span></div>
-          <h4>Business</h4>
-          <p>Mehrere Seiten mit Funktionen, die Arbeit abnehmen.</p>
-          <ul><li>Kontaktformular oder Terminbuchung</li><li>SEO-Grundlagen</li><li>Einweisung zum Selberpflegen</li></ul>
+        <article class="offer">
+          <div class="offer__top"><span class="offer__code">W²</span><span class="offer__tag">Beliebt</span></div>
+          <h3 class="offer__title">Business</h3>
+          <p class="offer__text">Mehrere Seiten mit Funktionen, die Arbeit abnehmen.</p>
+          <ul class="offer__list"><li>Kontaktformular oder Terminbuchung</li><li>SEO-Grundlagen</li><li>Einweisung zum Selberpflegen</li></ul>
+          <p class="offer__price">ab 1.490 €</p>
         </article>
-        <article class="card">
-          <div class="card__top"><span class="card__code">W<sup>³</sup></span><span class="card__price">ab 990 €</span></div>
-          <h4>Relaunch</h4>
-          <p>Ihre Seite ist in die Jahre gekommen? Ich mache sie modern, schnell und mobil.</p>
-          <ul><li>Inhalte werden übernommen</li><li>Google findet Sie weiter</li><li>Optional: Pflege monatlich</li></ul>
-        </article>
-      </div>
-    </div>
-    <div class="panel" id="panel-a" role="tabpanel" aria-labelledby="tab-a">
-      <div class="flow" aria-label="So funktioniert die Dokumenten-App">
-        <div class="flow__step"><span>01</span><strong>Hochladen</strong><p>Rechnungen, Lieferscheine, Fotos</p></div>
-        <div class="flow__arrow" aria-hidden="true">→</div>
-        <div class="flow__step"><span>02</span><strong>KI liest aus</strong><p>Beträge, Daten, Positionen</p></div>
-        <div class="flow__arrow" aria-hidden="true">→</div>
-        <div class="flow__step flow__step--out"><span>03</span><strong>Fertig gebaut</strong><p>Belegliste, Angebot oder Bericht</p></div>
-      </div>
-      <div class="cards">
-        <article class="card">
-          <div class="card__top"><span class="card__code">A<sup>¹</sup></span><span class="card__price">ab 890 €</span></div>
-          <h4>Beleg-Autopilot</h4>
-          <p>Belege fotografieren, der Rest passiert von selbst.</p>
-          <ul><li>Rechnungen automatisch auslesen</li><li>Sortiert nach Monat und Lieferant</li><li>Export für Steuerbüro oder DATEV</li></ul>
-        </article>
-        <article class="card card--feature">
-          <div class="card__top"><span class="card__code">A<sup>²</sup></span><span class="card__price">ab 2.400 €</span></div>
-          <h4>Eigene App</h4>
-          <p>Eine Web-App für Ihren Betrieb: Dateien rein, Ergebnis raus.</p>
-          <ul><li>Aus Aufmaß und Fotos wird ein Angebot</li><li>Läuft im Browser und auf dem Handy</li><li>Auf Wunsch lokal, Daten bleiben im Haus</li></ul>
-        </article>
-        <article class="card">
-          <div class="card__top"><span class="card__code">A<sup>³</sup></span><span class="card__price">ab 600 €</span></div>
-          <h4>Abläufe verbinden</h4>
-          <p>Ihre Werkzeuge sprechen miteinander, statt dass Sie abtippen.</p>
-          <ul><li>Anfragen direkt in Kalender und Liste</li><li>Automatische Erinnerungen</li><li>Vorlagen auf Knopfdruck</li></ul>
+        <article class="offer">
+          <div class="offer__top"><span class="offer__code">W³</span></div>
+          <h3 class="offer__title">Relaunch</h3>
+          <p class="offer__text">Ihre Seite ist in die Jahre gekommen? Ich mache sie modern, schnell und mobil.</p>
+          <ul class="offer__list"><li>Inhalte werden übernommen</li><li>Google findet Sie weiter</li><li>Optional: Pflege monatlich</li></ul>
+          <p class="offer__price">ab 990 €</p>
         </article>
       </div>
     </div>
-    <div class="panel" id="panel-k" role="tabpanel" aria-labelledby="tab-k">
-      <div class="cards">
-        <article class="card">
-          <div class="card__top"><span class="card__code">K<sup>¹</sup></span><span class="card__price">ab 450 €</span></div>
-          <h4>KI-Kompass</h4>
-          <p>Halbtägiger Workshop mit Ihrem Team: Wo hilft KI wirklich?</p>
-          <ul><li>Mit Ihren eigenen Aufgaben</li><li>Leitlinien für Datenschutz</li><li>Unterstützt die KI-Kompetenzpflicht</li></ul>
+    <div class="panel" id="panel-a" role="tabpanel" aria-labelledby="tab-a" hidden>
+      <p class="flow-line"><span>Hochladen</span><i aria-hidden="true">→</i><span>KI liest aus</span><i aria-hidden="true">→</i><span>Fertig gebaut</span><em>Rechnungen, Fotos oder Lieferscheine werden zu Belegliste, Angebot oder Bericht.</em></p>
+      <div class="offers">
+        <article class="offer">
+          <div class="offer__top"><span class="offer__code">A¹</span></div>
+          <h3 class="offer__title">Beleg-Autopilot</h3>
+          <p class="offer__text">Belege fotografieren, der Rest passiert von selbst.</p>
+          <ul class="offer__list"><li>Rechnungen automatisch auslesen</li><li>Sortiert nach Monat und Lieferant</li><li>Export für Steuerbüro oder DATEV</li></ul>
+          <p class="offer__price">ab 890 €</p>
         </article>
-        <article class="card">
-          <div class="card__top"><span class="card__code">K<sup>²</sup></span><span class="card__price">ab 1.200 €</span></div>
-          <h4>KI-Pilot</h4>
-          <p>Ein konkreter Prototyp, der ab Tag eins Zeit spart.</p>
-          <ul><li>Assistent für Angebote und E-Mails</li><li>FAQ-Chat auf Ihrer Website</li><li>Getestet mit Ihrem Team</li></ul>
+        <article class="offer">
+          <div class="offer__top"><span class="offer__code">A²</span><span class="offer__tag">Neu</span></div>
+          <h3 class="offer__title">Eigene App</h3>
+          <p class="offer__text">Eine Web-App für Ihren Betrieb: Dateien rein, Ergebnis raus.</p>
+          <ul class="offer__list"><li>Aus Aufmaß und Fotos wird ein Angebot</li><li>Läuft im Browser und auf dem Handy</li><li>Auf Wunsch lokal, Daten bleiben im Haus</li></ul>
+          <p class="offer__price">ab 2.400 €</p>
         </article>
-        <article class="card card--dark">
-          <div class="card__top"><span class="card__code">K<sup>³</sup></span><span class="card__price">auf Anfrage</span></div>
-          <h4>Transformation</h4>
-          <p>Strategische Begleitung vom Ist-Zustand zur KI-fähigen Organisation.</p>
-          <ul><li>Prozessanalyse und Roadmap</li><li>Pilotprojekte</li><li>Begleitung im Team</li></ul>
+        <article class="offer">
+          <div class="offer__top"><span class="offer__code">A³</span></div>
+          <h3 class="offer__title">Abläufe verbinden</h3>
+          <p class="offer__text">Ihre Werkzeuge sprechen miteinander, statt dass Sie abtippen.</p>
+          <ul class="offer__list"><li>Anfragen direkt in Kalender und Liste</li><li>Automatische Erinnerungen</li><li>Vorlagen auf Knopfdruck</li></ul>
+          <p class="offer__price">ab 600 €</p>
+        </article>
+      </div>
+    </div>
+    <div class="panel" id="panel-k" role="tabpanel" aria-labelledby="tab-k" hidden>
+      <div class="offers">
+        <article class="offer">
+          <div class="offer__top"><span class="offer__code">K¹</span></div>
+          <h3 class="offer__title">KI-Kompass</h3>
+          <p class="offer__text">Halbtägiger Workshop mit Ihrem Team: Wo hilft KI wirklich?</p>
+          <ul class="offer__list"><li>Mit Ihren eigenen Aufgaben</li><li>Leitlinien für Datenschutz</li><li>Unterstützt die KI-Kompetenzpflicht</li></ul>
+          <p class="offer__price">ab 450 €</p>
+        </article>
+        <article class="offer">
+          <div class="offer__top"><span class="offer__code">K²</span></div>
+          <h3 class="offer__title">KI-Pilot</h3>
+          <p class="offer__text">Ein konkreter Prototyp, der ab Tag eins Zeit spart.</p>
+          <ul class="offer__list"><li>Assistent für Angebote und E-Mails</li><li>FAQ-Chat auf Ihrer Website</li><li>Getestet mit Ihrem Team</li></ul>
+          <p class="offer__price">ab 1.200 €</p>
+        </article>
+        <article class="offer">
+          <div class="offer__top"><span class="offer__code">K³</span></div>
+          <h3 class="offer__title">Transformation</h3>
+          <p class="offer__text">Strategische Begleitung vom Ist-Zustand zur KI-fähigen Organisation.</p>
+          <ul class="offer__list"><li>Prozessanalyse und Roadmap</li><li>Pilotprojekte</li><li>Begleitung im Team</li></ul>
+          <p class="offer__price">auf Anfrage</p>
         </article>
       </div>
     </div>
@@ -351,6 +357,6 @@
   <div class="wrap footer__base"><span>© 2026 Enis Sentürk</span><span>Reutlingen</span></div>
 </footer>
 
-<script src="assets/main.js"></script>
+<script src="assets/main.js?v=4"></script>
 </body>
 </html>
