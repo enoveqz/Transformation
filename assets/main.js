@@ -25,7 +25,7 @@
   }, { rootMargin: '0px 0px -8% 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  /* Hero-Orb: eine schwebende „Iris“ aus Licht */
+  /* Hero: weiche, langsam fließende Farbwolken */
   const c = document.querySelector('.hero__orb');
   if (!c) return;
   const ctx = c.getContext('2d');
@@ -52,7 +52,7 @@
     ctx.clearRect(0, 0, w, h);
 
     const mobile = w < 760;
-    const R = Math.min(w, h) * (mobile ? 0.36 : 0.30);
+    const R = Math.min(w, h) * (mobile ? 0.42 : 0.38);
     const cx = w * (mobile ? 0.62 : 0.68) + mx * 30;
     const cy = h * (mobile ? 0.36 : 0.42) + my * 30;
 
@@ -62,32 +62,6 @@
     blob(cx + Math.sin(t * .9) * R * .4, cy + Math.cos(t * 1.4) * R * .35, R * 1.05, 'rgba(242,201,255,.75)');
     blob(cx + Math.cos(t * .7 + 2) * R * .3, cy + Math.sin(t * .8 + 1) * R * .4, R * .95, 'rgba(255,214,186,.6)');
     ctx.globalCompositeOperation = 'source-over';
-
-    // Iris-Ringe
-    ctx.save();
-    ctx.translate(cx + mx * 18, cy + my * 18);
-    ctx.rotate(t * .6);
-    for (let i = 0; i < 64; i++) {
-      const a = (i / 64) * Math.PI * 2;
-      const r1 = R * .2, r2 = R * (.55 + .06 * Math.sin(i * 3.1 + t * 4));
-      ctx.strokeStyle = `rgba(14,14,14,${.05 + .05 * Math.sin(i + t * 2)})`;
-      ctx.lineWidth = 1;
-      ctx.beginPath(); ctx.moveTo(Math.cos(a) * r1, Math.sin(a) * r1); ctx.lineTo(Math.cos(a) * r2, Math.sin(a) * r2); ctx.stroke();
-    }
-    ctx.restore();
-
-    // Pupille + Glanzlicht
-    const px = cx + mx * 26, py = cy + my * 26;
-    const pr = R * (.17 + .015 * Math.sin(t * 3));
-    const pg = ctx.createRadialGradient(px, py, 0, px, py, pr);
-    pg.addColorStop(0, 'rgba(14,14,14,.95)'); pg.addColorStop(.8, 'rgba(14,14,14,.9)'); pg.addColorStop(1, 'rgba(14,14,14,0)');
-    ctx.fillStyle = pg; ctx.beginPath(); ctx.arc(px, py, pr, 0, Math.PI * 2); ctx.fill();
-    ctx.fillStyle = 'rgba(255,255,255,.85)';
-    ctx.beginPath(); ctx.arc(px - pr * .35, py - pr * .35, pr * .14, 0, Math.PI * 2); ctx.fill();
-
-    // feiner Außenring
-    ctx.strokeStyle = 'rgba(14,14,14,.12)';
-    ctx.beginPath(); ctx.arc(cx, cy, R * 1.02, 0, Math.PI * 2); ctx.stroke();
 
     if (!reduce) requestAnimationFrame(draw);
   };
