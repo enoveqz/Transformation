@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ocak Grill – Döner &amp; Grill (Beispiel-Entwurf)</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="demo.css">
+<style>
+@font-face{font-family:"Big Shoulders";src:url(fonts/BigShoulders-Bold.woff) format("woff");font-weight:700;font-display:swap}
+@font-face{font-family:"Bricolage";src:url(fonts/BricolageGrotesque-Regular.woff) format("woff");font-weight:400;font-display:swap}
+@font-face{font-family:"Bricolage";src:url(fonts/BricolageGrotesque-Bold.woff) format("woff");font-weight:700;font-display:swap}
+:root{--red:#D7261E;--red-d:#A9170F;--cream:#FFF4E0;--ink:#1A1414;--yellow:#F7B801;--green:#2F8F46;--brown:#7A3E1D}
+body{background:var(--cream);color:var(--ink);font:400 17px/1.5 "Bricolage",sans-serif}
+.w{max-width:1280px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+h1,h2,h3{font-family:"Big Shoulders",sans-serif;font-weight:700;text-transform:uppercase;line-height:.86;letter-spacing:.005em}
+.top{background:var(--red);color:var(--cream);position:relative;overflow:hidden}
+nav{display:flex;align-items:center;gap:28px;padding:20px 0;font-weight:700}
+.logo{font-family:"Big Shoulders",sans-serif;font-size:34px;text-transform:uppercase;margin-right:auto;display:flex;align-items:center;gap:10px}
+.logo i{width:14px;height:14px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 4px rgba(247,184,1,.3)}
+nav .links{display:flex;gap:24px}
+.order{background:var(--yellow);color:var(--ink);padding:12px 20px;border-radius:999px}
+.hero{display:grid;grid-template-columns:1.25fr 1fr;align-items:center;gap:20px;padding:20px 0 0;min-height:620px}
+.hero h1{font-size:clamp(84px,13vw,200px)}
+.hero h1 span{color:var(--yellow)}
+.hero p{font-size:20px;max-width:440px;margin:20px 0 28px;color:#FFE1D0}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:16px 26px;border-radius:999px;font-weight:700;font-size:16px}
+.btn--y{background:var(--yellow);color:var(--ink)}
+.btn--o{border:2px solid var(--cream)}
+.spit{position:relative;height:100%;min-height:520px;display:flex;justify-content:center;align-items:flex-end}
+.spit svg{height:560px;width:auto}
+.sticker{position:absolute;right:4%;top:8%;width:140px;height:140px;border-radius:50%;background:var(--yellow);color:var(--ink);display:grid;place-items:center;text-align:center;font-family:"Big Shoulders",sans-serif;text-transform:uppercase;font-size:26px;line-height:.9;transform:rotate(12deg)}
+.ribbon{background:var(--yellow);color:var(--ink);overflow:hidden;white-space:nowrap;transform:rotate(-1.5deg);margin:-14px -20px 0;position:relative;z-index:2;border-block:3px solid var(--ink)}
+.ribbon div{display:inline-flex;gap:28px;padding:14px 0;font-family:"Big Shoulders",sans-serif;font-size:30px;text-transform:uppercase;animation:run 22s linear infinite}
+@keyframes run{to{transform:translateX(-50%)}}
+section{padding:90px 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:36px}
+.head h2{font-size:clamp(64px,8vw,120px)}
+.head h2 span{color:var(--red)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tab{border:2px solid var(--ink);border-radius:999px;padding:8px 16px;font-weight:700;font-size:15px;background:transparent;cursor:pointer}
+.tab.on{background:var(--ink);color:var(--cream)}
+.menu{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.item{background:#fff;border:2px solid var(--ink);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:8px;box-shadow:6px 6px 0 var(--ink);transition:transform .2s}
+.item:hover{transform:translate(-2px,-2px)}
+.item .tag{align-self:flex-start;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#FFE7B0}
+.item .tag.v{background:#D7F0DC;color:var(--green)}
+.item h3{font-size:44px}
+.item p{font-size:15px;color:#6B5B57;flex:1}
+.item .pr{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.item .pr b{font-family:"Big Shoulders",sans-serif;font-size:40px;color:var(--red)}
+.item .pr button{width:44px;height:44px;border-radius:50%;border:0;background:var(--ink);color:var(--yellow);font-size:24px;cursor:pointer}
+.deal{background:var(--ink);color:var(--cream);border-radius:24px;padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:1.3fr 1fr;gap:28px;align-items:center}
+.deal h2{font-size:clamp(56px,7vw,104px)}.deal h2 span{color:var(--yellow)}
+.deal .price{font-family:"Big Shoulders",sans-serif;font-size:clamp(90px,12vw,170px);color:var(--yellow);line-height:.8;text-align:right}
+.deal small{display:block;font-family:"Bricolage",sans-serif;font-size:16px;color:#BFAFA8;text-align:right;margin-top:10px}
+.info{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.info div{border-top:3px solid var(--ink);padding-top:16px}
+.info h3{font-size:36px;margin-bottom:8px}
+footer{background:var(--red);color:var(--cream);padding:46px 0 80px;margin-top:40px}
+footer .w{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
+footer .logo{font-size:56px}
+.cart{position:fixed;right:16px;bottom:16px;background:var(--ink);color:var(--yellow);border-radius:999px;padding:14px 20px;font-weight:700;display:none;z-index:50}
+.cart.show{display:block}
+@media(max-width:900px){nav .links{display:none}.menu{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.hero,.deal{grid-template-columns:1fr}.hero{min-height:0}.spit{min-height:330px}.spit svg{height:340px}.sticker{width:104px;height:104px;font-size:20px;top:2%}.menu,.info{grid-template-columns:1fr}.head{flex-direction:column;align-items:start}.deal .price,.deal small{text-align:left}section{padding:64px 0}}
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="w">
+    <nav>
+      <a class="logo" href="#"><i></i>Ocak Grill</a>
+      <div class="links"><a href="#karte">Speisekarte</a><a href="#mittag">Mittagsmenü</a><a href="#info">Öffnungszeiten</a></div>
+      <a class="order" href="#karte">Jetzt bestellen</a>
+    </nav>
+    <header class="hero">
+      <div>
+        <h1>Frisch<br>vom <span>Spieß.</span></h1>
+        <p>Jeden Morgen selbst geschichtet, Brot aus dem Steinofen, Soßen nach Familienrezept.</p>
+        <div class="cta"><a class="btn btn--y" href="#karte">Online bestellen</a><a class="btn btn--o" href="#info">Abholen in 10 Min.</a></div>
+      </div>
+      <div class="spit" aria-hidden="true">
+        <svg viewBox="0 0 260 560">
+          <defs>
+            <linearGradient id="meat" x1="0" x2="1"><stop offset="0" stop-color="#6B2E12"/><stop offset=".45" stop-color="#C46A2B"/><stop offset=".7" stop-color="#E39A4F"/><stop offset="1" stop-color="#7A3417"/></linearGradient>
+            <pattern id="layers" width="260" height="14" patternUnits="userSpaceOnUse"><rect width="260" height="14" fill="url(#meat)"/><path d="M0 11 Q65 7 130 11 T260 11" stroke="#5A220C" stroke-opacity=".45" stroke-width="2" fill="none"/></pattern>
+            <radialGradient id="fire" cx=".5" cy="1" r="1"><stop offset="0" stop-color="#FFD54A"/><stop offset=".5" stop-color="#FF8A1F"/><stop offset="1" stop-color="#FF8A1F" stop-opacity="0"/></radialGradient>
+          </defs>
+          <rect x="126" y="0" width="8" height="560" rx="4" fill="#E8E1D6"/>
+          <path d="M60 40 Q130 20 200 40 L190 470 Q130 490 70 470 Z" fill="url(#layers)"/>
+          <path d="M60 40 Q130 20 200 40 L196 120 Q130 104 64 120 Z" fill="#fff" opacity=".08"/>
+          <path d="M150 60 L196 52 L186 460 L150 470 Z" fill="#000" opacity=".12"/>
+          <ellipse cx="130" cy="38" rx="70" ry="12" fill="#8C3F18"/>
+          <rect x="40" y="488" width="180" height="20" rx="10" fill="#2A2020"/>
+          <ellipse cx="130" cy="540" rx="120" ry="30" fill="url(#fire)" opacity=".6"/>
+        </svg>
+        <div class="sticker">Seit<br>2009 in<br>Reutlingen</div>
+      </div>
+    </header>
+  </div>
+</div>
+<div class="ribbon" aria-hidden="true"><div><span>Frisch</span>★<span>Halal</span>★<span>Hausgemachte Soßen</span>★<span>Steinofenbrot</span>★<span>Vegetarisch</span>★<span>Frisch</span>★<span>Halal</span>★<span>Hausgemachte Soßen</span>★<span>Steinofenbrot</span>★<span>Vegetarisch</span>★</div></div>
+
+<div class="w">
+  <section id="karte">
+    <div class="head"><h2>Die <span>Karte</span></h2>
+      <div class="tabs" role="tablist"><button class="tab on" data-f="all">Alles</button><button class="tab" data-f="d">Döner</button><button class="tab" data-f="o">Ofen</button><button class="tab" data-f="v">Vegetarisch</button></div>
+    </div>
+    <div class="menu">
+      <article class="item" data-c="d"><span class="tag">Bestseller</span><h3>Döner Kebab</h3><p>Kalb oder Hähnchen, Salat, Rotkohl, Zwiebeln, Soße nach Wahl.</p><div class="pr"><b>7,50 €</b><button aria-label="In den Warenkorb">+</button></div></article>
+      <article class="item" data-c="d"><span class="tag">Scharf möglich</span><h3>Dürüm</h3><p>Im dünnen Yufka gerollt, mit gegrillten Peperoni.</p><div class="pr"><b>8,50 €</b><button aria-label="In den Warenkorb">+</button></div></article>
+      <article class="item" data-c="d"><span class="tag">Für Hungrige</span><h3>Döner Teller</h3><p>Mit Pommes oder Reis, Salat und zwei Soßen.</p><div class="pr"><b>12,90 €</b><button aria-label="In den Warenkorb">+</button></div></article>
+      <article class="item" data-c="o"><span class="tag">Steinofen</span><h3>Lahmacun</h3><p>Dünner Teig, würziges Hack, frische Kräuter, Zitrone.</p><div class="pr"><b>5,50 €</b><button aria-label="In den Warenkorb">+</button></div></article>
+      <article class="item" data-c="o"><span class="tag">Steinofen</span><h3>Pide Sucuk</h3><p>Mit Knoblauchwurst, Käse und Ei.</p><div class="pr"><b>9,90 €</b><button aria-label="In den Warenkorb">+</button></div></article>
+      <article class="item" data-c="v"><span class="tag v">Vegetarisch</span><h3>Falafel Box</h3><p>Hausgemachte Falafel, Hummus, Salat, Sesamsoße.</p><div class="pr"><b>8,90 €</b><button aria-label="In den Warenkorb">+</button></div></article>
+    </div>
+  </section>
+
+  <section id="mittag" style="padding-top:0">
+    <div class="deal">
+      <div><h2>Mittags-<br><span>Menü</span></h2><p style="color:#BFAFA8;margin-top:14px">Mo bis Fr, 11 bis 14 Uhr: Döner oder Dürüm plus Ayran oder Softdrink.</p></div>
+      <div><div class="price">9 €</div><small>Auch zum Abholen</small></div>
+    </div>
+  </section>
+
+  <section id="info" style="padding-top:0">
+    <div class="info">
+      <div><h3>Öffnungszeiten</h3><p>Mo–Sa 10:30–23 Uhr<br>So 12–22 Uhr</p></div>
+      <div><h3>Adresse</h3><p>Musterstraße 3<br>72764 Reutlingen</p></div>
+      <div><h3>Bestellen</h3><p>Online oder telefonisch<br>07121 / 00 00 00</p></div>
+    </div>
+  </section>
+</div>
+<footer><div class="w"><span class="logo">Ocak Grill</span><span>Impressum · Datenschutz</span></div></footer>
+<a class="cart" href="#karte">🛒 <span>0</span> Artikel · Bestellen</a>
+<div class="demo-badge">Beispiel-Entwurf, fiktiver Betrieb · <a href="../index.html#beispiele">Enis Sentürk</a></div>
+<script>
+if(location.search.includes('shot'))document.documentElement.classList.add('shot');
+document.querySelector('.tabs').addEventListener('click',e=>{const t=e.target.closest('.tab');if(!t)return;document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x===t));document.querySelectorAll('.item').forEach(i=>i.style.display=(t.dataset.f==='all'||i.dataset.c===t.dataset.f)?'':'none')});
+let n=0;const cart=document.querySelector('.cart');document.querySelectorAll('.item button').forEach(b=>b.addEventListener('click',()=>{n++;cart.querySelector('span').textContent=n;cart.classList.add('show')}));
+</script>
+</body>
+</html>

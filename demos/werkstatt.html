@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Garage 19 – Kfz-Meisterbetrieb (Beispiel-Entwurf)</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="demo.css">
+<style>
+@font-face{font-family:"Outfit";src:url(fonts/Outfit-Regular.woff) format("woff");font-weight:400;font-display:swap}
+@font-face{font-family:"Outfit";src:url(fonts/Outfit-Bold.woff) format("woff");font-weight:700;font-display:swap}
+@font-face{font-family:"Mono";src:url(fonts/RedHatMono-Regular.woff) format("woff");font-display:swap}
+:root{--bg:#0F1113;--panel:#171A1D;--panel2:#1F2328;--fg:#F2F2EF;--muted:#8D949B;--y:#FFD23F;--line:rgba(242,242,239,.1);--ok:#5BD18B}
+body{background:var(--bg);color:var(--fg);font:400 16px/1.55 "Outfit",sans-serif}
+.w{max-width:1280px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+h1,h2,h3{font-weight:700;letter-spacing:-.03em;line-height:.95}
+.mono{font-family:"Mono",monospace;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+nav{display:flex;align-items:center;gap:28px;padding:20px 0;border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;margin-right:auto}
+.logo i{font-style:normal;background:var(--y);color:#111;padding:4px 8px;border-radius:6px;font-size:16px}
+nav .links{display:flex;gap:26px;color:var(--muted);font-size:15px}
+nav .tel{font-family:"Mono",monospace;font-size:14px}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;padding:64px 0 80px;position:relative}
+.big19{position:absolute;right:-2%;top:-30px;font-size:clamp(200px,30vw,440px);font-weight:700;line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(255,210,63,.18);pointer-events:none;letter-spacing:-.06em}
+.hero h1{font-size:clamp(56px,8vw,118px);margin:18px 0 22px}
+.hero h1 span{color:var(--y)}
+.hero p{color:var(--muted);font-size:19px;max-width:500px}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.badges span{border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:14px}
+.badges span::before{content:"✓ ";color:var(--ok)}
+.book{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:26px;position:relative;z-index:1;align-self:start}
+.book h3{font-size:26px;margin-bottom:4px}
+.book .mono{display:block;margin-bottom:18px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.opt{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:14px;text-align:left;cursor:pointer}
+.opt b{display:block;font-size:15px}.opt small{color:var(--muted)}
+.opt.on{border-color:var(--y);box-shadow:inset 0 0 0 1px var(--y)}
+.plate{display:flex;align-items:center;background:#fff;color:#111;border-radius:8px;border:2px solid #111;overflow:hidden;margin:6px 0 12px}
+.plate em{background:#1D4FB8;color:#fff;font-style:normal;font-size:11px;font-weight:700;padding:14px 8px;align-self:stretch;display:grid;place-items:center}
+.plate input{border:0;outline:0;flex:1;padding:12px;font:700 22px "Mono",monospace;letter-spacing:.08em;text-transform:uppercase;min-width:0}
+.go{width:100%;background:var(--y);color:#111;border:0;border-radius:12px;padding:16px;font-weight:700;font-size:16px;cursor:pointer}
+.stripes{height:18px;background:repeating-linear-gradient(-45deg,var(--y) 0 18px,#111 18px 36px)}
+section{padding:90px 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:36px}
+.head h2{font-size:clamp(44px,5.6vw,84px)}
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.svc div{background:var(--bg);padding:28px;display:flex;flex-direction:column;gap:10px;min-height:220px;transition:background .2s}
+.svc div:hover{background:var(--panel)}
+.svc h3{font-size:28px}
+.svc p{color:var(--muted);font-size:15px;flex:1}
+.svc b{font-family:"Mono",monospace;color:var(--y);font-weight:400;font-size:15px}
+.status{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:center}
+.status h2{font-size:clamp(40px,5vw,72px)}
+.status p{color:var(--muted);margin-top:16px;max-width:460px}
+.phone{background:var(--panel);border:1px solid var(--line);border-radius:28px;padding:22px;max-width:380px;margin-left:auto;width:100%}
+.msg{background:var(--panel2);border-radius:16px 16px 16px 4px;padding:12px 14px;margin-bottom:10px;font-size:15px;max-width:88%}
+.msg small{display:block;color:var(--muted);font-size:12px;margin-top:4px}
+.msg.me{background:#2B5C3E;margin-left:auto;border-radius:16px 16px 4px 16px}
+.track{display:flex;justify-content:space-between;margin:14px 0 4px;gap:6px}
+.track span{flex:1;height:6px;border-radius:9px;background:var(--panel2)}
+.track span.d{background:var(--ok)}
+footer{border-top:1px solid var(--line);padding:46px 0 80px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px;color:var(--muted);font-size:15px}
+footer strong{color:var(--fg);font-size:22px;display:block;margin-bottom:6px}
+@media(max-width:900px){nav .links{display:none}.svc{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.hero,.status,footer{grid-template-columns:1fr}.hero{padding-top:40px}.svc{grid-template-columns:1fr}.head{flex-direction:column;align-items:start}.phone{margin:0}section{padding:64px 0}nav .tel{display:none}}
+</style>
+</head>
+<body>
+<div class="w">
+  <nav>
+    <a class="logo" href="#"><i>19</i>Garage Neunzehn</a>
+    <div class="links"><a href="#leistungen">Leistungen</a><a href="#status">Live-Status</a><a href="#kontakt">Kontakt</a></div>
+    <a class="tel" href="tel:+497121000000">07121 / 00 00 00</a>
+  </nav>
+
+  <header class="hero">
+        <div>
+      <span class="mono">Kfz-Meisterbetrieb · Alle Marken · Reutlingen</span>
+      <h1>Ihr Auto.<br>In <span>guten</span><br>Händen.</h1>
+      <p>Inspektion, HU/AU und Reparatur zu Festpreisen. Termin online buchen, Status aufs Handy bekommen.</p>
+      <div class="badges"><span>Meisterbetrieb</span><span>Ersatzwagen</span><span>Herstellergarantie bleibt</span></div>
+    </div>
+    <div class="book">
+      <h3>Termin buchen</h3>
+      <span class="mono">Antwort in unter 2 Stunden</span>
+      <div class="opts">
+        <button class="opt on"><b>Inspektion</b><small>ab 149 €</small></button>
+        <button class="opt"><b>HU / AU</b><small>ab 139 €</small></button>
+        <button class="opt"><b>Reifenwechsel</b><small>ab 39 €</small></button>
+        <button class="opt"><b>Fehlerdiagnose</b><small>ab 49 €</small></button>
+      </div>
+      <span class="mono">Ihr Kennzeichen</span>
+      <label class="plate"><em>D</em><input value="RT EN 19" aria-label="Kennzeichen"></label>
+      <button class="go">Wunschtermin wählen →</button>
+    </div>
+  </header>
+</div>
+<div class="stripes" aria-hidden="true"></div>
+
+<div class="w">
+  <section id="leistungen">
+    <div class="head"><h2>Leistungen &amp; Festpreise</h2><span class="mono">Alle Preise inkl. MwSt.</span></div>
+    <div class="svc">
+      <div><span class="mono">01</span><h3>Inspektion</h3><p>Nach Herstellervorgabe, Garantie bleibt erhalten.</p><b>ab 149 €</b></div>
+      <div><span class="mono">02</span><h3>HU / AU</h3><p>Prüfung direkt bei uns im Haus, ohne Extra-Termin.</p><b>ab 139 €</b></div>
+      <div><span class="mono">03</span><h3>Bremsen</h3><p>Beläge und Scheiben, auch am selben Tag.</p><b>ab 189 €</b></div>
+      <div><span class="mono">04</span><h3>Reifenservice</h3><p>Wechsel, Einlagerung und Achsvermessung.</p><b>ab 39 €</b></div>
+      <div><span class="mono">05</span><h3>Klimaservice</h3><p>Desinfektion und Befüllung vor dem Sommer.</p><b>ab 89 €</b></div>
+      <div><span class="mono">06</span><h3>Diagnose</h3><p>Fehlerspeicher auslesen, ehrliche Einschätzung.</p><b>ab 49 €</b></div>
+    </div>
+  </section>
+
+  <section id="status" style="padding-top:0">
+    <div class="status">
+      <div>
+        <span class="mono">Automatisiert</span>
+        <h2>Kein Hinterher-Telefonieren mehr.</h2>
+        <p>Sie bekommen automatisch Bescheid, wenn Ihr Auto angenommen, geprüft und abholbereit ist. Inklusive Kostenvoranschlag zum Freigeben per Klick.</p>
+      </div>
+      <div class="phone">
+        <span class="mono">Garage 19 · Status RT-EN 19</span>
+        <div class="track"><span class="d"></span><span class="d"></span><span class="d"></span><span></span></div>
+        <div class="msg">✓ Ihr Fahrzeug wurde um 7:42 Uhr angenommen.<small>07:42</small></div>
+        <div class="msg">Bremsbeläge vorne bei 2 mm. Tausch: 189 € inkl. Material. Freigeben?<small>09:15</small></div>
+        <div class="msg me">Ja, bitte machen 👍<small>09:21</small></div>
+        <div class="msg">Ihr Auto ist ab 15:30 Uhr abholbereit.<small>13:04</small></div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="kontakt">
+    <div><strong>Garage Neunzehn</strong>Musterstraße 19 · 72766 Reutlingen</div>
+    <div>Mo–Fr 7:30–18 Uhr<br>Sa 9–13 Uhr</div>
+    <div>Impressum<br>Datenschutz</div>
+  </footer>
+</div>
+<div class="demo-badge">Beispiel-Entwurf, fiktiver Betrieb · <a href="../index.html#beispiele">Enis Sentürk</a></div>
+<script>
+if(location.search.includes('shot'))document.documentElement.classList.add('shot');
+document.querySelector('.opts').addEventListener('click',e=>{const o=e.target.closest('.opt');if(!o)return;document.querySelectorAll('.opt').forEach(x=>x.classList.toggle('on',x===o))});
+document.querySelector('.go').addEventListener('click',e=>{e.currentTarget.textContent='✓ Anfrage gesendet (Demo)'});
+</script>
+</body>
+</html>

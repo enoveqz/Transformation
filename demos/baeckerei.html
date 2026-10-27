@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Backstube Morgenrot – Bäckerei &amp; Café (Beispiel-Entwurf)</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="demo.css">
+<style>
+@font-face{font-family:"Gloock";src:url(fonts/Gloock-Regular.woff) format("woff");font-display:swap}
+@font-face{font-family:"Outfit";src:url(fonts/Outfit-Regular.woff) format("woff");font-weight:400;font-display:swap}
+@font-face{font-family:"Outfit";src:url(fonts/Outfit-Bold.woff) format("woff");font-weight:700;font-display:swap}
+@font-face{font-family:"Hand";src:url(fonts/NothingYouCouldDo-Regular.woff) format("woff");font-display:swap}
+:root{--bg:#FBF5EA;--paper:#FFFDF8;--ink:#3A2716;--muted:#8B735C;--crust:#D9822B;--deep:#9C5520;--wheat:#EBDCC0;--sky:#F6C9A8;--line:rgba(58,39,22,.15)}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 "Outfit",sans-serif}
+.w{max-width:1200px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+h1,h2,h3{font-family:"Gloock",serif;font-weight:400;line-height:1;letter-spacing:-.01em}
+.hand{font-family:"Hand",cursive;color:var(--deep)}
+.bar{background:var(--ink);color:var(--wheat);text-align:center;font-size:14px;padding:9px 16px}
+.bar b{color:#fff}
+nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0;gap:20px}
+nav .links{display:flex;gap:28px;font-size:15px}
+.logo{display:flex;flex-direction:column;align-items:center;line-height:1}
+.logo b{font-family:"Gloock",serif;font-weight:400;font-size:28px}
+.logo small{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.pre{background:var(--crust);color:#fff;padding:12px 20px;border-radius:999px;font-weight:700;font-size:15px}
+.hero{text-align:center;padding:40px 0 30px;position:relative}
+.sun{position:absolute;left:50%;top:-10px;width:min(620px,90vw);aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,var(--sky),rgba(246,201,168,0) 65%);z-index:-1}
+.hero .hand{font-size:28px;display:block;transform:rotate(-3deg)}
+.hero h1{font-size:clamp(56px,9vw,128px);margin:12px 0 18px}
+.hero p{color:var(--muted);font-size:19px;max-width:520px;margin:0 auto 28px}
+.loaves{display:flex;justify-content:center;align-items:flex-end;gap:clamp(8px,2vw,28px);margin-top:20px}
+.loaves svg{height:clamp(90px,14vw,170px);width:auto}
+.shelf{height:14px;background:var(--wheat);border-radius:8px;margin-top:-6px}
+section{padding:90px 0}
+.head{text-align:center;margin-bottom:40px}
+.head h2{font-size:clamp(40px,5vw,72px)}
+.head .hand{font-size:24px}
+.today{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.prod{background:var(--paper);border-radius:20px;padding:22px;text-align:center;border:1px solid var(--line)}
+.prod svg{height:96px;width:auto;margin:6px auto 14px}
+.prod h3{font-size:24px}
+.prod p{font-size:14px;color:var(--muted)}
+.prod b{display:block;margin-top:10px;font-size:18px;color:var(--deep)}
+.prod .left{display:inline-block;margin-top:8px;font-size:12px;font-weight:700;background:#FDE8D3;color:var(--deep);padding:3px 10px;border-radius:999px}
+.order{display:grid;grid-template-columns:1fr 1fr;gap:40px;background:var(--paper);border-radius:28px;padding:clamp(28px,5vw,56px);border:1px solid var(--line)}
+.order h2{font-size:clamp(40px,4.4vw,64px)}
+.order p{color:var(--muted);margin-top:14px}
+.form{display:flex;flex-direction:column;gap:12px}
+.line{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding:10px 0}
+.qty{display:flex;align-items:center;gap:12px}
+.qty button{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:18px}
+.qty span{min-width:18px;text-align:center;font-weight:700}
+.form select,.form .send{border-radius:12px;padding:14px;border:1px solid var(--line);background:#fff}
+.form .send{background:var(--ink);color:#fff;font-weight:700;border:0;cursor:pointer}
+.cafe{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
+.cafe h2{font-size:clamp(44px,5vw,76px)}
+.cafe ul{margin-top:20px}
+.cafe li{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px dashed var(--line)}
+.cup{aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 50% 50%,#6B4226 0 30%,#C79A6B 31% 34%,#fff 35% 46%,var(--wheat) 47%);display:grid;place-items:center;position:relative}
+.cup::after{content:"";position:absolute;width:20%;height:6%;border-radius:999px;border:3px solid #fff;right:6%;top:47%}
+.cup .hand{position:absolute;bottom:8%;font-size:26px;transform:rotate(-6deg)}
+footer{border-top:1px solid var(--line);padding:46px 0 80px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;color:var(--muted);font-size:15px}
+footer h3{color:var(--ink);font-size:22px;margin-bottom:8px}
+@media(max-width:900px){nav .links{display:none}.today{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.order,.cafe,footer{grid-template-columns:1fr}.cup{max-width:300px;margin:0 auto}section{padding:64px 0}.loaves svg:nth-child(n+4){display:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <radialGradient id="crust" cx=".45" cy=".35" r=".75"><stop offset="0" stop-color="#E9A35B"/><stop offset=".6" stop-color="#C8732A"/><stop offset="1" stop-color="#8A4718"/></radialGradient>
+  <radialGradient id="light" cx=".45" cy=".35" r=".8"><stop offset="0" stop-color="#F3D29A"/><stop offset=".7" stop-color="#DDA35A"/><stop offset="1" stop-color="#B5772F"/></radialGradient>
+  <radialGradient id="dark" cx=".45" cy=".35" r=".8"><stop offset="0" stop-color="#A9693A"/><stop offset=".7" stop-color="#6E3E1C"/><stop offset="1" stop-color="#4A2810"/></radialGradient>
+  <symbol id="loaf" viewBox="0 0 200 120"><ellipse cx="100" cy="70" rx="92" ry="48" fill="url(#crust)"/><path d="M45 52 Q60 40 75 52 M85 44 Q100 32 115 44 M125 52 Q140 40 155 52" stroke="#F6D9AE" stroke-width="5" fill="none" stroke-linecap="round"/></symbol>
+  <symbol id="round" viewBox="0 0 140 120"><circle cx="70" cy="66" r="52" fill="url(#dark)"/><path d="M40 50 L100 82 M40 82 L100 50" stroke="#C9935C" stroke-width="4" stroke-linecap="round"/></symbol>
+  <symbol id="crois" viewBox="0 0 200 120"><g fill="url(#light)" stroke="#B5772F" stroke-width="2"><ellipse cx="30" cy="88" rx="14" ry="18" transform="rotate(-50 30 88)"/><ellipse cx="170" cy="88" rx="14" ry="18" transform="rotate(50 170 88)"/><ellipse cx="56" cy="70" rx="20" ry="26" transform="rotate(-28 56 70)"/><ellipse cx="144" cy="70" rx="20" ry="26" transform="rotate(28 144 70)"/><ellipse cx="100" cy="60" rx="30" ry="36"/></g></symbol>
+  <symbol id="pretzel" viewBox="0 0 160 140"><path d="M80 120 C20 120 6 60 30 34 C52 10 96 22 80 64 C64 22 108 10 130 34 C154 60 140 120 80 120 M50 106 L110 60 M110 106 L50 60" stroke="url(#dark)" stroke-width="16" fill="none" stroke-linecap="round"/><circle cx="60" cy="40" r="2" fill="#fff"/><circle cx="100" cy="44" r="2" fill="#fff"/><circle cx="80" cy="112" r="2" fill="#fff"/></symbol>
+  <symbol id="roll" viewBox="0 0 120 100"><ellipse cx="60" cy="56" rx="50" ry="38" fill="url(#light)"/><path d="M30 50 Q60 38 90 50" stroke="#F7E3BF" stroke-width="5" fill="none" stroke-linecap="round"/></symbol>
+</defs></svg>
+
+<div class="bar">Heute frisch: <b>Dinkel-Kruste</b> und <b>Apfel-Zimt-Schnecken</b> · ab 6 Uhr geöffnet</div>
+<div class="w">
+  <nav>
+    <div class="links"><a href="#theke">Theke</a><a href="#vorbestellen">Vorbestellen</a></div>
+    <a class="logo" href="#"><b>Backstube Morgenrot</b><small>Bäckerei · Café</small></a>
+    <a class="pre" href="#vorbestellen">Vorbestellen</a>
+  </nav>
+
+  <header class="hero">
+    <div class="sun"></div>
+    <span class="hand">seit 4 Uhr in der Backstube</span>
+    <h1>Gutes Brot<br>braucht Zeit.</h1>
+    <p>Natursauerteig, regionales Mehl von der Alb und keine Backmischungen. Seit drei Generationen in Reutlingen.</p>
+    <div class="loaves" aria-hidden="true">
+      <svg viewBox="0 0 160 140"><use href="#pretzel"/></svg>
+      <svg viewBox="0 0 200 120"><use href="#loaf"/></svg>
+      <svg viewBox="0 0 140 120"><use href="#round"/></svg>
+      <svg viewBox="0 0 200 120"><use href="#crois"/></svg>
+      <svg viewBox="0 0 120 100"><use href="#roll"/></svg>
+    </div>
+    <div class="shelf"></div>
+  </header>
+
+  <section id="theke">
+    <div class="head"><span class="hand">frisch aus dem Ofen</span><h2>Heute in der Theke</h2></div>
+    <div class="today">
+      <div class="prod"><svg viewBox="0 0 200 120"><use href="#loaf"/></svg><h3>Dinkel-Kruste</h3><p>750 g · Natursauerteig</p><b>5,40 €</b><span class="left">noch 6 Stück</span></div>
+      <div class="prod"><svg viewBox="0 0 160 140"><use href="#pretzel"/></svg><h3>Laugenbrezel</h3><p>Schwäbisch, von Hand geschlungen</p><b>0,95 €</b></div>
+      <div class="prod"><svg viewBox="0 0 140 120"><use href="#round"/></svg><h3>Albkornbrot</h3><p>1 kg · Roggen &amp; Saaten</p><b>6,20 €</b></div>
+      <div class="prod"><svg viewBox="0 0 200 120"><use href="#crois"/></svg><h3>Buttercroissant</h3><p>Echte Butter, 27 Schichten</p><b>1,80 €</b><span class="left">fast weg</span></div>
+    </div>
+  </section>
+
+  <section id="vorbestellen" style="padding-top:0">
+    <div class="order">
+      <div>
+        <span class="hand" style="font-size:22px">nie wieder leer ausgehen</span>
+        <h2>Vorbestellen, morgens abholen.</h2>
+        <p>Bis 18 Uhr bestellen, am nächsten Morgen liegt Ihr Brot mit Namen bereit. Ohne Anstehen.</p>
+      </div>
+      <div class="form">
+        <div class="line"><span>Dinkel-Kruste</span><div class="qty"><button aria-label="weniger">−</button><span>1</span><button aria-label="mehr">+</button></div></div>
+        <div class="line"><span>Laugenbrezel</span><div class="qty"><button aria-label="weniger">−</button><span>4</span><button aria-label="mehr">+</button></div></div>
+        <div class="line"><span>Buttercroissant</span><div class="qty"><button aria-label="weniger">−</button><span>2</span><button aria-label="mehr">+</button></div></div>
+        <select aria-label="Abholzeit"><option>Abholung morgen, 7:00 Uhr</option><option>Abholung morgen, 8:00 Uhr</option><option>Abholung morgen, 9:00 Uhr</option></select>
+        <button class="send">Vorbestellung absenden · <span class="sum">13,00</span> €</button>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="cafe">
+      <div>
+        <span class="hand" style="font-size:22px">im Café</span>
+        <h2>Frühstück bis 14 Uhr</h2>
+        <ul>
+          <li><span>Kleines Frühstück · Brezel, Butter, Kaffee</span><b>4,90 €</b></li>
+          <li><span>Albfrühstück · Bauernbrot, Käse, Ei, Saft</span><b>11,50 €</b></li>
+          <li><span>Hausgemachter Kuchen</span><b>ab 3,20 €</b></li>
+          <li><span>Cappuccino</span><b>3,40 €</b></li>
+        </ul>
+      </div>
+      <div class="cup"><span class="hand">mit Liebe</span></div>
+    </div>
+  </section>
+
+  <footer>
+    <div><h3>Backstube Morgenrot</h3>Musterstraße 21<br>72762 Reutlingen</div>
+    <div><h3>Öffnungszeiten</h3>Mo–Fr 6–18 Uhr<br>Sa 6–13 · So 7–11 Uhr</div>
+    <div><h3>Kontakt</h3>07121 / 00 00 00<br>Impressum · Datenschutz</div>
+  </footer>
+</div>
+<div class="demo-badge">Beispiel-Entwurf, fiktiver Betrieb · <a href="../index.html#beispiele">Enis Sentürk</a></div>
+<script>
+if(location.search.includes('shot'))document.documentElement.classList.add('shot');
+const price=[5.4,.95,1.8];
+function sum(){let s=0;document.querySelectorAll('.qty span').forEach((q,i)=>s+=+q.textContent*price[i]);document.querySelector('.sum').textContent=s.toFixed(2).replace('.',',')}
+document.querySelectorAll('.qty').forEach(q=>{const [m,,p]=q.children;const v=q.querySelector('span');m.onclick=()=>{v.textContent=Math.max(0,+v.textContent-1);sum()};p.onclick=()=>{v.textContent=+v.textContent+1;sum()}});
+sum();
+document.querySelector('.send').addEventListener('click',e=>{e.currentTarget.textContent='✓ Liegt morgen bereit (Demo)'});
+</script>
+</body>
+</html>

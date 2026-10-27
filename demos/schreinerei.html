@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Werkbank Sieben – Schreinerei (Beispiel-Entwurf)</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="demo.css">
+<style>
+@font-face{font-family:"Young Serif";src:url(fonts/YoungSerif-Regular.woff) format("woff");font-display:swap}
+@font-face{font-family:"Work Sans";src:url(fonts/WorkSans-Regular.woff) format("woff");font-weight:400;font-display:swap}
+@font-face{font-family:"Work Sans";src:url(fonts/WorkSans-Bold.woff) format("woff");font-weight:700;font-display:swap}
+:root{--bg:#F3EEE6;--paper:#FBF8F3;--ink:#2B2119;--muted:#7A6A5C;--oak:#B98A55;--walnut:#5A3A22;--sage:#6E7F63;--line:rgba(43,33,25,.15)}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 "Work Sans",sans-serif}
+.w{max-width:1240px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+h1,h2,h3{font-family:"Young Serif",serif;font-weight:400;line-height:1.02;letter-spacing:-.015em}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:6px;font-weight:700;font-size:15px}
+.btn--dark{background:var(--ink);color:var(--paper)}
+.btn--line{border:1.5px solid var(--ink)}
+nav{display:flex;align-items:center;gap:32px;padding:22px 0}
+.logo{display:flex;align-items:center;gap:12px;font-family:"Young Serif",serif;font-size:22px;margin-right:auto}
+.logo i{width:34px;height:34px;border-radius:4px;background:var(--walnut);display:grid;place-items:center;color:var(--paper);font-style:normal;font-size:18px}
+nav .links{display:flex;gap:28px;font-size:15px}
+nav .tel{font-weight:700;font-size:15px;border-bottom:2px solid var(--oak)}
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center;padding:40px 0 80px}
+.hero .kick{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.hero h1{font-size:clamp(52px,7vw,104px);margin:18px 0 24px}
+.hero h1 em{font-style:normal;color:var(--oak)}
+.hero p{max-width:470px;color:var(--muted);font-size:19px;margin-bottom:32px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px}
+.panel{position:relative;aspect-ratio:4/5;border-radius:10px;overflow:hidden;box-shadow:0 40px 80px -40px rgba(43,33,25,.6)}
+.panel svg{position:absolute;inset:0;width:100%;height:100%}
+.panel .seal{position:absolute;left:24px;bottom:24px;right:24px;background:var(--paper);border-radius:8px;padding:20px 22px;display:flex;gap:18px;align-items:center}
+.seal b{font-family:"Young Serif",serif;font-size:40px;font-weight:400;line-height:1}
+.seal span{font-size:14px;color:var(--muted);line-height:1.4}
+.trust{display:flex;flex-wrap:wrap;gap:12px 40px;padding:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:15px}
+.trust b{color:var(--oak)}
+section{padding:96px 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:44px}
+.head h2{font-size:clamp(38px,4.6vw,64px);max-width:640px}
+.head p{max-width:360px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.svc{background:var(--paper);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.svc .img{aspect-ratio:1/1;position:relative}
+.svc .img svg{position:absolute;inset:0;width:100%;height:100%}
+.svc div.t{padding:20px 20px 24px}
+.svc h3{font-size:26px;margin-bottom:6px}
+.svc p{font-size:15px;color:var(--muted)}
+.woods{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.wood{border-radius:10px;overflow:hidden;background:var(--paper)}
+.wood svg{width:100%;height:160px}
+.wood div{padding:18px 20px;display:flex;justify-content:space-between;align-items:baseline}
+.wood h3{font-size:24px}.wood span{font-size:14px;color:var(--muted)}
+.band{background:var(--walnut);color:var(--paper);border-radius:14px;padding:clamp(32px,5vw,64px);display:grid;grid-template-columns:1.4fr 1fr;gap:32px;align-items:center}
+.band h2{font-size:clamp(34px,4vw,56px)}
+.band p{color:#E6D6C3;margin-top:14px}
+.band .btn{background:var(--oak);color:var(--ink);justify-self:start}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:s}
+.steps li{border-top:2px solid var(--ink);padding-top:18px}
+.steps li::before{counter-increment:s;content:"0" counter(s);font-family:"Young Serif",serif;font-size:44px;color:var(--oak);display:block;margin-bottom:10px}
+.steps h3{font-size:24px;margin-bottom:6px}.steps p{color:var(--muted);font-size:15px}
+footer{padding:56px 0 80px;border-top:1px solid var(--line);display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px;font-size:15px;color:var(--muted)}
+footer strong{display:block;color:var(--ink);font-family:"Young Serif",serif;font-weight:400;font-size:22px;margin-bottom:8px}
+@media(max-width:900px){.grid{grid-template-columns:1fr 1fr}nav .links{display:none}}
+@media(max-width:760px){.hero,.band,footer{grid-template-columns:1fr}.hero{padding-top:8px}.panel{aspect-ratio:4/3}.head{flex-direction:column;align-items:start}.woods,.steps{grid-template-columns:1fr}section{padding:64px 0}nav .tel{display:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="oak" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.006 0.14" numOctaves="4" seed="4"/><feColorMatrix values="0.55 0 0 0 0.5  0.4 0 0 0 0.33  0.22 0 0 0 0.17  0 0 0 0 1"/></filter>
+    <filter id="walnut" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.005 0.11" numOctaves="4" seed="9"/><feColorMatrix values="0.32 0 0 0 0.17  0.21 0 0 0 0.09  0.12 0 0 0 0.04  0 0 0 0 1"/></filter>
+    <filter id="ash" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.004 0.16" numOctaves="3" seed="2"/><feColorMatrix values="0.35 0 0 0 0.68  0.3 0 0 0 0.6  0.25 0 0 0 0.48  0 0 0 0 1"/></filter>
+  </defs>
+</svg>
+
+<div class="w">
+  <nav>
+    <a class="logo" href="#"><i>7</i>Werkbank Sieben</a>
+    <div class="links"><a href="#leistungen">Leistungen</a><a href="#holz">Holzarten</a><a href="#ablauf">Ablauf</a><a href="#kontakt">Kontakt</a></div>
+    <a class="tel" href="tel:+497121000000">07121 / 00 00 00</a>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <span class="kick">Schreinerei · Meisterbetrieb · Reutlingen</span>
+      <h1>Möbel,<br>die <em>bleiben.</em></h1>
+      <p>Küchen, Einbauschränke und Treppen nach Maß. Gefertigt in unserer Werkstatt, eingebaut von denselben Händen.</p>
+      <div class="cta"><a class="btn btn--dark" href="#kontakt">Kostenloses Aufmaß →</a><a class="btn btn--line" href="#leistungen">Leistungen</a></div>
+    </div>
+    <div class="panel">
+      <svg preserveAspectRatio="none"><rect width="100%" height="100%" filter="url(#oak)"/></svg>
+      <div class="seal"><b>27</b><span>Jahre Handwerk in Reutlingen.<br>Alles aus einer Hand, vom Entwurf bis zur Montage.</span></div>
+    </div>
+  </header>
+
+  <div class="trust"><span><b>★ 4,9</b> bei Google</span><span>Meisterbetrieb der Innung</span><span>Eigene Werkstatt</span><span>Festpreis nach Aufmaß</span></div>
+
+  <section id="leistungen">
+    <div class="head"><h2>Was wir für Sie bauen</h2><p>Jedes Stück ist ein Einzelstück. Wir beraten ehrlich, auch wenn die einfachere Lösung die bessere ist.</p></div>
+    <div class="grid">
+      <article class="svc"><div class="img"><svg preserveAspectRatio="none"><rect width="100%" height="100%" filter="url(#oak)"/><rect x="18%" y="22%" width="64%" height="56%" fill="none" stroke="#FBF8F3" stroke-width="2"/><line x1="50%" y1="22%" x2="50%" y2="78%" stroke="#FBF8F3" stroke-width="2"/></svg></div><div class="t"><h3>Küchen</h3><p>Maßgeplant, mit Geräten Ihrer Wahl.</p></div></article>
+      <article class="svc"><div class="img"><svg preserveAspectRatio="none"><rect width="100%" height="100%" filter="url(#ash)"/><rect x="24%" y="14%" width="52%" height="72%" fill="none" stroke="#2B2119" stroke-width="2"/><line x1="24%" y1="40%" x2="76%" y2="40%" stroke="#2B2119" stroke-width="2"/><line x1="24%" y1="63%" x2="76%" y2="63%" stroke="#2B2119" stroke-width="2"/></svg></div><div class="t"><h3>Einbauschränke</h3><p>Jede Nische genutzt, auch unter der Schräge.</p></div></article>
+      <article class="svc"><div class="img"><svg preserveAspectRatio="none"><rect width="100%" height="100%" filter="url(#walnut)"/><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M20 80 L20 68 L35 68 L35 56 L50 56 L50 44 L65 44 L65 32 L80 32 L80 20" fill="none" stroke="#FBF8F3" stroke-width="2" vector-effect="non-scaling-stroke"/></svg></svg></div><div class="t"><h3>Treppen</h3><p>Massivholz, sicher und leise.</p></div></article>
+      <article class="svc"><div class="img"><svg preserveAspectRatio="none"><rect width="100%" height="100%" filter="url(#oak)"/><rect x="32%" y="12%" width="36%" height="76%" rx="2" fill="none" stroke="#2B2119" stroke-width="2"/><circle cx="62%" cy="52%" r="3" fill="#2B2119"/></svg></div><div class="t"><h3>Türen</h3><p>Innentüren und Haustüren nach Maß.</p></div></article>
+    </div>
+  </section>
+
+  <section id="holz" style="padding-top:0">
+    <div class="head"><h2>Holz zum Anfassen</h2><p>Kommen Sie in die Werkstatt und wählen Sie Ihr Holz selbst aus.</p></div>
+    <div class="woods">
+      <div class="wood"><svg preserveAspectRatio="none"><rect width="100%" height="100%" filter="url(#oak)"/></svg><div><h3>Eiche</h3><span>robust · hell</span></div></div>
+      <div class="wood"><svg preserveAspectRatio="none"><rect width="100%" height="100%" filter="url(#walnut)"/></svg><div><h3>Nussbaum</h3><span>edel · dunkel</span></div></div>
+      <div class="wood"><svg preserveAspectRatio="none"><rect width="100%" height="100%" filter="url(#ash)"/></svg><div><h3>Esche</h3><span>lebhaft · zäh</span></div></div>
+    </div>
+  </section>
+
+  <section id="ablauf" style="padding-top:0">
+    <div class="head"><h2>So einfach geht's</h2></div>
+    <ol class="steps">
+      <li><h3>Anruf oder Anfrage</h3><p>Sie erzählen uns, was Sie sich vorstellen.</p></li>
+      <li><h3>Aufmaß &amp; Entwurf</h3><p>Wir messen vor Ort und zeichnen Ihr Möbel in 3D.</p></li>
+      <li><h3>Fertigung &amp; Montage</h3><p>Pünktlich, sauber, mit Festpreis.</p></li>
+    </ol>
+  </section>
+
+  <section id="kontakt" style="padding-top:0">
+    <div class="band">
+      <div><h2>Aufmaß vor Ort: kostenlos.</h2><p>Mo bis Fr, 7 bis 17 Uhr · Musterstraße 7, 72762 Reutlingen</p></div>
+      <a class="btn" href="tel:+497121000000">Jetzt anrufen →</a>
+    </div>
+  </section>
+
+  <footer>
+    <div><strong>Werkbank Sieben</strong>Schreinerei · Meisterbetrieb<br>Musterstraße 7 · 72762 Reutlingen</div>
+    <div>Mo–Fr 7–17 Uhr<br>Sa nach Vereinbarung</div>
+    <div>Impressum<br>Datenschutz</div>
+  </footer>
+</div>
+
+<div class="demo-badge">Beispiel-Entwurf, fiktiver Betrieb · <a href="../index.html#beispiele">Enis Sentürk</a></div>
+<script>if(location.search.includes('shot'))document.documentElement.classList.add('shot')</script>
+</body>
+</html>

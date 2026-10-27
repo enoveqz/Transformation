@@ -67,3 +67,54 @@
   };
   draw();
 })();
+
+/* Beispiele: Polaroid-Galerie mit Großansicht */
+(() => {
+  const data = [
+    { k:'schreinerei', t:'Schreinerei', url:'werkbank-sieben.de', text:'Warme Holztöne und eine kräftige Serifenschrift zeigen Handwerk und Beständigkeit. Wichtigster Knopf: kostenloses Aufmaß anfragen.', f:['Leistungen mit Bildern','Holzarten zum Vergleichen','Anruf mit einem Tipp','Ablauf in 3 Schritten'] },
+    { k:'friseur', t:'Friseur', url:'salon-mira.de', text:'Ruhige Farben, elegante Kursivschrift und viel Luft. Die Online-Terminbuchung steht ganz oben und entlastet das Telefon.', f:['Online-Terminbuchung','Preisliste','Team-Vorstellung','Öffnungszeiten'] },
+    { k:'doener', t:'Dönerladen', url:'ocak-grill.de', text:'Laut, rot und appetitlich. Die Speisekarte ist filterbar, bestellt wird mit einem Tipp, das Mittagsmenü springt sofort ins Auge.', f:['Speisekarte mit Filter','Online bestellen','Mittagsangebot','Für das Handy gebaut'] },
+    { k:'baeckerei', t:'Bäckerei & Café', url:'backstube-morgenrot.de', text:'Gemütlich und regional, mit handschriftlichen Akzenten. Kundschaft sieht, was heute in der Theke liegt, und kann für morgen vorbestellen.', f:['Tagesangebot','Vorbestellung','Frühstückskarte','Hinweisleiste oben'] },
+    { k:'werkstatt', t:'Kfz-Werkstatt', url:'garage-19.de', text:'Dunkel, technisch und klar, mit Festpreisen. Termine werden online gebucht, den Status bekommt die Kundschaft automatisch aufs Handy.', f:['Terminbuchung mit Kennzeichen','Festpreise','Automatische Status-Updates','Freigabe per Klick'] },
+  ];
+  const lb = document.querySelector('.lightbox');
+  if (!lb) return;
+  const pols = [...document.querySelectorAll('.polaroid')];
+  const $ = id => document.getElementById(id);
+  const stage = lb.querySelector('.lightbox__stage');
+  let cur = 0, opener = null;
+
+  const show = i => {
+    cur = (i + data.length) % data.length;
+    const d = data[cur];
+    $('lb-count').textContent = `${cur + 1} / ${data.length}`;
+    $('lb-title').textContent = d.t;
+    $('lb-url').textContent = d.url;
+    $('lb-desk').src = `assets/img/demos/${d.k}-desktop.webp`; $('lb-desk').alt = `Desktop-Ansicht: ${d.t}`;
+    $('lb-mob').src = `assets/img/demos/${d.k}-mobil.webp`; $('lb-mob').alt = `Handy-Ansicht: ${d.t}`;
+    $('lb-text').textContent = d.text;
+    $('lb-feat').innerHTML = d.f.map(x => `<li>${x}</li>`).join('');
+    $('lb-live').href = `demos/${d.k}.html`;
+    lb.querySelectorAll('.browser__scroll,.phone__scroll').forEach(s => s.scrollTop = 0);
+    pols.forEach((p, j) => p.classList.toggle('is-active', j === cur));
+  };
+  const open = i => { opener = pols[i]; show(i); lb.showModal(); document.body.classList.add('lb-open'); };
+  const close = () => lb.close();
+
+  pols.forEach((p, i) => p.addEventListener('click', () => open(i)));
+  lb.addEventListener('close', () => { document.body.classList.remove('lb-open'); pols.forEach(p => p.classList.remove('is-active')); opener && opener.focus(); });
+  lb.querySelector('.lightbox__close').addEventListener('click', close);
+  lb.querySelector('.lb-prev').addEventListener('click', () => show(cur - 1));
+  lb.querySelector('.lb-next').addEventListener('click', () => show(cur + 1));
+  lb.addEventListener('click', e => { if (e.target === lb) close(); });
+  lb.addEventListener('keydown', e => { if (e.key === 'ArrowRight') show(cur + 1); if (e.key === 'ArrowLeft') show(cur - 1); });
+  lb.querySelectorAll('.lightbox__view button').forEach(b => b.addEventListener('click', () => {
+    lb.querySelectorAll('.lightbox__view button').forEach(x => x.classList.toggle('on', x === b));
+    stage.dataset.view = b.dataset.v;
+  }));
+  const setMobileView = () => { if (innerWidth <= 760 && stage.dataset.view === 'both') { stage.dataset.view = 'mobil'; lb.querySelectorAll('.lightbox__view button').forEach(x => x.classList.toggle('on', x.dataset.v === 'mobil')); } };
+  setMobileView(); addEventListener('resize', setMobileView);
+  let x0 = null;
+  lb.querySelector('.lightbox__foot').addEventListener('touchstart', e => x0 = e.touches[0].clientX, { passive: true });
+  lb.querySelector('.lightbox__foot').addEventListener('touchend', e => { if (x0 == null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1)); x0 = null; });
+})();

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Salon Mira – Friseur (Beispiel-Entwurf)</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="demo.css">
+<style>
+@font-face{font-family:"Instrument Serif";src:url(fonts/InstrumentSerif-Regular.woff) format("woff");font-display:swap}
+@font-face{font-family:"Instrument Serif";src:url(fonts/InstrumentSerif-Italic.woff) format("woff");font-style:italic;font-display:swap}
+@font-face{font-family:"Instrument Sans";src:url(fonts/InstrumentSans-Regular.woff) format("woff");font-weight:400;font-display:swap}
+@font-face{font-family:"Instrument Sans";src:url(fonts/InstrumentSans-Bold.woff) format("woff");font-weight:700;font-display:swap}
+:root{--bg:#F5EDE7;--paper:#FBF7F4;--ink:#1D1A19;--muted:#857771;--rose:#E2C2B5;--clay:#B9805F;--gold:#C9A27E;--line:rgba(29,26,25,.14)}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 "Instrument Sans",sans-serif}
+.w{max-width:1280px;margin:0 auto;padding:0 clamp(16px,4vw,44px)}
+h1,h2,h3{font-family:"Instrument Serif",serif;font-weight:400;line-height:.95;letter-spacing:-.01em}
+em{font-style:italic}
+nav{display:flex;align-items:center;justify-content:space-between;padding:24px 0;font-size:14px;letter-spacing:.06em;text-transform:uppercase}
+nav .logo{font-family:"Instrument Serif",serif;font-size:30px;letter-spacing:0;text-transform:none}
+nav .links{display:flex;gap:30px}
+.book{background:var(--ink);color:var(--paper);padding:12px 20px;border-radius:999px;font-weight:700}
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;padding:30px 0 90px;align-items:end}
+.hero h1{font-size:clamp(70px,10vw,160px)}
+.hero h1 em{color:var(--clay)}
+.hero p{max-width:420px;color:var(--muted);font-size:18px;margin:26px 0 0}
+.arches{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:end}
+.arch{border-radius:999px 999px 14px 14px;overflow:hidden;position:relative}
+.arch:nth-child(1){aspect-ratio:3/5;background:radial-gradient(120% 80% at 30% 20%,#F2D9CC,transparent 60%),linear-gradient(160deg,#D9A68B,#8E5A41)}
+.arch:nth-child(2){aspect-ratio:3/4;background:radial-gradient(90% 70% at 70% 30%,#FBEDE4,transparent 60%),linear-gradient(200deg,#E2C2B5,#B9805F 70%,#6B4532)}
+.arch svg{position:absolute;inset:0;width:100%;height:100%;mix-blend-mode:soft-light;opacity:.9}
+.arch span{position:absolute;left:16px;bottom:14px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#fff}
+.booking{background:var(--paper);border-radius:22px;padding:28px;box-shadow:0 30px 60px -40px rgba(29,26,25,.5);margin-top:-40px;position:relative;z-index:2;max-width:560px;margin-left:auto}
+.booking h3{font-size:30px;margin-bottom:16px}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.pill{border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:14px;background:transparent;cursor:pointer}
+.pill.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.slot{border:1px solid var(--line);border-radius:10px;padding:10px 0;text-align:center;font-size:14px;cursor:pointer;background:transparent}
+.slot.on{background:var(--clay);color:#fff;border-color:var(--clay)}
+.slot.off{opacity:.35;text-decoration:line-through;cursor:default}
+.booking .go{display:block;margin-top:16px;text-align:center;background:var(--ink);color:var(--paper);border-radius:12px;padding:14px;font-weight:700}
+section{padding:100px 0}
+.split{display:grid;grid-template-columns:1fr 1.3fr;gap:60px}
+.split h2{font-size:clamp(48px,6vw,92px)}
+.split h2 em{color:var(--clay)}
+.prices h4{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:28px 0 8px}
+.prices h4:first-child{margin-top:0}
+.row{display:flex;align-items:baseline;gap:12px;padding:10px 0;font-size:18px}
+.row i{flex:1;border-bottom:1px dotted rgba(29,26,25,.35);transform:translateY(-4px)}
+.row b{font-weight:400;font-family:"Instrument Serif",serif;font-size:24px}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.member .arch{aspect-ratio:3/4;display:grid;place-items:center}
+.member:nth-child(1) .arch{background:linear-gradient(170deg,#E9CDBF,#B9805F)}
+.member:nth-child(2) .arch{background:linear-gradient(170deg,#D8C3B4,#7E6A5E)}
+.member:nth-child(3) .arch{background:linear-gradient(170deg,#F0DDD0,#C9A27E)}
+.member .arch b{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;font-size:110px;color:rgba(255,255,255,.85)}
+.member h3{font-size:34px;margin-top:14px}.member p{color:var(--muted)}
+.quote{text-align:center;max-width:900px;margin:0 auto}
+.quote p{font-family:"Instrument Serif",serif;font-style:italic;font-size:clamp(32px,4vw,56px);line-height:1.08}
+.quote span{display:block;margin-top:18px;color:var(--muted);font-size:14px;letter-spacing:.08em;text-transform:uppercase}
+footer{border-top:1px solid var(--line);padding:50px 0 80px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px;color:var(--muted);font-size:15px}
+footer .logo{font-family:"Instrument Serif",serif;font-size:40px;color:var(--ink);line-height:1}
+@media(max-width:900px){nav .links{display:none}}
+@media(max-width:760px){.hero,.split,footer{grid-template-columns:1fr}.hero{padding-bottom:60px}.team{grid-template-columns:1fr 1fr}.member:nth-child(3){display:none}section{padding:70px 0}.booking{margin-top:-24px}.slots{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="hair"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.05" numOctaves="3" seed="7"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  1.2 0 0 0 -.45"/></filter></svg>
+<div class="w">
+  <nav>
+    <a class="logo" href="#">Salon Mira</a>
+    <div class="links"><a href="#preise">Preise</a><a href="#team">Team</a><a href="#kontakt">Kontakt</a></div>
+    <a class="book" href="#termin">Termin buchen</a>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <h1>Haare<br>mit <em>Haltung.</em></h1>
+      <p>Schnitt, Farbe und Pflege in ruhiger Atmosphäre. Mitten in der Reutlinger Altstadt, mit Zeit für Sie.</p>
+    </div>
+    <div class="arches">
+      <div class="arch"><svg><rect width="100%" height="100%" filter="url(#hair)"/></svg><span>Balayage</span></div>
+      <div class="arch"><svg><rect width="100%" height="100%" filter="url(#hair)"/></svg><span>Schnitt</span></div>
+    </div>
+  </header>
+
+  <div class="booking" id="termin">
+    <h3>Ihr Termin in 30 Sekunden</h3>
+    <div class="pills"><button class="pill on">Damenschnitt</button><button class="pill">Herrenschnitt</button><button class="pill">Farbe</button><button class="pill">Styling</button></div>
+    <div class="pills"><button class="pill">Di 28.</button><button class="pill on">Mi 29.</button><button class="pill">Do 30.</button><button class="pill">Fr 31.</button></div>
+    <div class="slots"><button class="slot off">09:00</button><button class="slot">10:30</button><button class="slot on">11:00</button><button class="slot">13:30</button><button class="slot off">14:00</button><button class="slot">15:30</button><button class="slot">16:00</button><button class="slot">17:30</button></div>
+    <a class="go" href="#">Mittwoch, 11:00 Uhr buchen</a>
+  </div>
+
+  <section id="preise">
+    <div class="split">
+      <h2>Ehrliche<br><em>Preise.</em></h2>
+      <div class="prices">
+        <h4>Damen</h4>
+        <div class="row">Waschen, Schneiden, Föhnen<i></i><b>ab 49 €</b></div>
+        <div class="row">Farbe inkl. Pflege<i></i><b>ab 65 €</b></div>
+        <div class="row">Balayage<i></i><b>ab 120 €</b></div>
+        <h4>Herren</h4>
+        <div class="row">Haarschnitt<i></i><b>29 €</b></div>
+        <div class="row">Schnitt &amp; Bart<i></i><b>39 €</b></div>
+        <h4>Kinder</h4>
+        <div class="row">bis 12 Jahre<i></i><b>18 €</b></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="team" style="padding-top:0">
+    <div class="team">
+      <div class="member"><div class="arch"><b>M</b></div><h3>Mira</h3><p>Inhaberin · Farbe &amp; Balayage</p></div>
+      <div class="member"><div class="arch"><b>J</b></div><h3>Jonas</h3><p>Herren &amp; Barber</p></div>
+      <div class="member"><div class="arch"><b>L</b></div><h3>Lea</h3><p>Hochsteck &amp; Braut</p></div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="quote"><p>„Endlich ein Salon, in dem man sich nicht beeilen muss.“</p><span>Beispiel-Kundenstimme</span></div>
+  </section>
+
+  <footer id="kontakt">
+    <div><span class="logo">Salon Mira</span><br>Musterstraße 12 · 72764 Reutlingen</div>
+    <div>Di–Fr 9–19 Uhr<br>Sa 8–14 Uhr</div>
+    <div>Impressum<br>Datenschutz</div>
+  </footer>
+</div>
+<div class="demo-badge">Beispiel-Entwurf, fiktiver Betrieb · <a href="../index.html#beispiele">Enis Sentürk</a></div>
+<script>
+if(location.search.includes('shot'))document.documentElement.classList.add('shot');
+document.querySelectorAll('.pills').forEach(g=>g.addEventListener('click',e=>{const b=e.target.closest('.pill');if(!b)return;g.querySelectorAll('.pill').forEach(x=>x.classList.remove('on'));b.classList.add('on');upd()}));
+const slots=document.querySelector('.slots');slots.addEventListener('click',e=>{const b=e.target.closest('.slot');if(!b||b.classList.contains('off'))return;slots.querySelectorAll('.slot').forEach(x=>x.classList.remove('on'));b.classList.add('on');upd()});
+function upd(){const d=document.querySelectorAll('.pills')[1].querySelector('.on').textContent;const t=slots.querySelector('.on');document.querySelector('.go').textContent=(t?d+', '+t.textContent+' Uhr buchen':'Uhrzeit wählen')}
+document.querySelector('.go').addEventListener('click',e=>{e.preventDefault();e.target.textContent='✓ Gebucht (Demo)'});
+</script>
+</body>
+</html>

@@ -271,3 +271,79 @@ h4{font:500 18px/1.25 "Inter",sans-serif;letter-spacing:-.01em}
   .reveal{opacity:1;transform:none;transition:none}
   .ticker__track{animation:none;flex-wrap:wrap;width:auto}
 }
+
+/* ───────── Beispiele: Polaroids ───────── */
+@font-face{font-family:"Hand";src:url(../demos/fonts/NothingYouCouldDo-Regular.woff) format("woff");font-display:swap}
+.examples{padding:clamp(80px,10vw,150px) 0 clamp(70px,9vw,130px);overflow:hidden}
+.examples__hint{max-width:340px;color:var(--muted);font-size:15px}
+.polaroids{display:flex;justify-content:center;gap:0;padding:30px var(--gutter) 40px;max-width:1600px;margin:0 auto}
+.polaroids li{flex:0 1 300px;min-width:0;margin:0 -14px}
+.polaroid{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;width:100%;background:#fff;padding:12px 12px 0;border-radius:3px;box-shadow:0 1px 2px rgba(0,0,0,.08),0 18px 40px -18px rgba(0,0,0,.35);transform:rotate(var(--r));transition:transform .5s var(--ease),box-shadow .5s var(--ease);position:relative}
+.polaroids li:nth-child(even) .polaroid{margin-top:34px}
+.polaroid:hover,.polaroid:focus-visible{transform:rotate(0) translateY(-14px) scale(1.04);box-shadow:0 2px 4px rgba(0,0,0,.08),0 40px 70px -24px rgba(0,0,0,.45);z-index:5}
+.polaroid:focus-visible{outline:2px solid var(--ink);outline-offset:6px}
+.polaroid.is-active{transform:rotate(0) scale(1.08);z-index:6}
+.polaroid__img{display:block;aspect-ratio:4/3;overflow:hidden;background:#eee}
+.polaroid__img img{width:100%;height:100%;object-fit:cover;object-position:top;filter:saturate(.92) contrast(1.02)}
+.polaroid__cap{font:400 26px/1 "Hand",cursive;color:#222;padding:16px 4px 2px}
+.polaroid__meta{font-size:12px;color:var(--muted);padding:0 4px 16px}
+.polaroids li:hover ~ li .polaroid{transform:rotate(var(--r)) translateX(10px)}
+
+/* Lightbox */
+.lightbox{border:0;padding:0;margin:auto;max-width:none;width:min(1280px,calc(100vw - 32px));max-height:calc(100dvh - 32px);height:calc(100dvh - 32px);background:var(--dark);color:var(--light);border-radius:22px;display:none;flex-direction:column;overflow:hidden}
+.lightbox[open]{display:flex;animation:lbIn .45s var(--ease)}
+.lightbox::backdrop{background:rgba(10,10,10,.7);backdrop-filter:blur(6px)}
+@keyframes lbIn{from{opacity:0;transform:translateY(20px) scale(.98)}}
+.lightbox__bar{display:flex;align-items:center;gap:16px;padding:16px 20px;border-bottom:1px solid var(--line-light)}
+.lightbox__title{margin-right:auto;display:flex;flex-direction:column;gap:4px}
+.lightbox__title h3{font-size:28px;letter-spacing:-.02em}
+.lightbox__view{display:flex;background:var(--dark-2);border-radius:999px;padding:4px}
+.lightbox__view button,.lightbox__close,.lightbox__nav button{all:unset;cursor:pointer;box-sizing:border-box}
+.lightbox__view button{padding:7px 14px;border-radius:999px;font-size:13px;color:var(--light-muted)}
+.lightbox__view button.on{background:var(--light);color:var(--ink)}
+.lightbox__close{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line-light)}
+.lightbox__close:hover{background:var(--dark-2)}
+.lightbox__stage{flex:1;min-height:0;display:flex;gap:24px;justify-content:center;align-items:stretch;padding:22px 24px;background:radial-gradient(80% 90% at 50% 100%,rgba(185,196,255,.12),transparent 70%)}
+.browser{flex:1 1 auto;max-width:980px;display:flex;flex-direction:column;border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+.browser__top{display:flex;align-items:center;gap:6px;padding:10px 12px;background:#E9E9E6}
+.browser__top i{width:10px;height:10px;border-radius:50%;background:#C9C9C4}
+.browser__top span{margin-left:12px;flex:1;max-width:340px;background:#fff;border-radius:6px;padding:4px 10px;font-size:12px;color:#666}
+.browser__scroll,.phone__scroll{flex:1;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+.browser__scroll img,.phone__scroll img{width:100%;height:auto;display:block}
+.phone{flex:0 0 auto;width:min(270px,30%);align-self:center;height:100%;max-height:560px;border:10px solid #232325;border-radius:38px;overflow:hidden;display:flex;background:#fff;box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+.lightbox__stage[data-view=desktop] .phone{display:none}
+.lightbox__stage[data-view=mobil] .browser{display:none}
+.lightbox__stage[data-view=mobil] .phone{width:300px;max-height:none}
+.lightbox__foot{display:grid;grid-template-columns:1.2fr 1fr auto;gap:16px 28px;align-items:center;padding:16px 20px 20px;border-top:1px solid var(--line-light)}
+.lightbox__foot p{color:var(--light-muted);font-size:15px}
+.lightbox__feat{display:flex;flex-wrap:wrap;gap:6px}
+.lightbox__feat li{font-size:12px;border:1px solid var(--line-light);border-radius:999px;padding:5px 10px}
+.lightbox__nav{display:flex;align-items:center;gap:8px}
+.lightbox__nav button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line-light);display:grid;place-items:center;font-size:18px}
+.lightbox__nav button:hover{background:var(--dark-2)}
+.lightbox__live{background:var(--light);color:var(--ink);font-weight:500;font-size:14px;padding:12px 18px;border-radius:999px;white-space:nowrap}
+.lightbox__live:hover{background:var(--accent)}
+body.lb-open{overflow:hidden}
+
+@media (max-width:1080px){
+  .polaroids{justify-content:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;padding:30px var(--gutter) 50px;scrollbar-width:none}
+  .polaroids::-webkit-scrollbar{display:none}
+  .polaroids li{flex:0 0 260px;margin:0 -6px;scroll-snap-align:center}
+  .lightbox__foot{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .examples__hint{max-width:none}
+  .polaroids li{flex-basis:72vw}
+  .lightbox{width:100vw;height:100dvh;max-height:100dvh;border-radius:0}
+  .lightbox__view button[data-v=both]{display:none}
+  .lightbox__title h3{font-size:22px}
+  .lightbox__stage{padding:14px}
+  .lightbox__stage[data-view=both] .browser{display:none}
+  .lightbox__stage[data-view=both] .phone,.lightbox__stage[data-view=mobil] .phone{width:min(300px,100%);max-height:none}
+  .browser{max-width:100%}
+  .lightbox__foot{padding:12px 16px 16px;gap:10px}
+  .lightbox__foot p{font-size:14px}
+  .lightbox__feat{display:none}
+  .lightbox__nav{justify-content:space-between}
+}
+@media (prefers-reduced-motion:reduce){.polaroid,.lightbox[open]{transition:none;animation:none}}
