@@ -144,3 +144,12 @@
     const t = document.getElementById('tab-' + a.dataset.tab); if (t) select(t);
   }));
 })();
+
+/* Logo: immer ganz nach oben */
+document.querySelector('.nav__logo')?.addEventListener('click', e => {
+  e.preventDefault();
+  const m = document.getElementById('menu');
+  if (m && !m.hidden) document.querySelector('.nav__burger').click();
+  scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+  history.replaceState(null, '', location.pathname + location.search);
+});
